@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Page Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+    </head>
+
+    <body id="wc">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.1.html"/></div>
+	
+	<a href="#" id="toggler" class="btn btn-warning">Toggle Fluid</a>
+	<BR><BR>
+
+	<!-- SAMPLE -->
+	<wc-page id="my-page-1" fluid="false">
+	    <wc-page-header>
+		<wc-include href="./parts/test/page.header.html"/>
+	    </wc-page-header>
+	    
+	    <wc-page-body>
+		<wc-include href="./parts/test/page.body.html"/>
+	    </wc-page-body>
+
+	    <wc-page-footer>
+		<wc-include href="./parts/test/page.footer.html"/>
+	    </wc-page-footer>
+	</wc-page>
+	<!-- SAMPLE -->
+
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+	
+	<script>
+	 wc.include()
+
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/page.js'],
+	     nope : [ '../js/include.js',  '../js/page.js']
+	 });
+
+	 $("#toggler").on("click", function() {
+	     let p = document.querySelector("wc-page");
+
+	     if ($(p).attr("fluid") == "true") {
+		 p.fluid(false);
+	     } else {
+		 p.fluid(true);
+	     }
+	 });
+	</script>
+    </body>
+</html>
+
+
+

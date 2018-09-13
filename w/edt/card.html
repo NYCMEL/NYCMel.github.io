@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>JSON Card</title>
+        <script src=".ext/jquery.js"   type="text/javascript" media="all"></script>
+        <script src=".ext/DataBind.js" type="text/javascript" media="all"></script>
+
+        <script src="tk.form.js"   type="text/javascript" media="all"></script>
+        <script src="tk.card.json" type="text/javascript" media="all"></script>
+    </head>
+    
+    <body id="wc">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 >JSON Form</h1>
+                </div>
+            </div>
+	    
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="main-container">
+			waiting...
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+		    <a href="tk.form.json" class="btn btn-warning">View JSON File</a>
+                </div>
+	    </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="main-container">
+                        <input type="text" class="form-control" data-key="cheader" id="test-input" value="" placeholder="Enter something for header...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src=".ext/bundle.js" type="text/javascript" media="all"></script>
+
+        <script>
+         tkFormInit("main-container", tkFormCard);
+	 
+	 // DATA BINDING (VALUES FROM: tkModel VARIABLE)
+	 tkInit();
+
+	 tkModel.cheader = "Hello Header"
+	 tkModel.cfooter = "Hello Footer"
+	 tkModel.cimage  = "Hello Image"
+	 tkModel.cdescription  = "Hello Description"
+	 //tk.model.cimagepos  = "Bottom";
+        </script>
+    </body>
+</html>

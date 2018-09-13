@@ -1,0 +1,25 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-text
+///////////////////////////////////////////
+#wc {
+    wc-text {
+	display: block;
+	visibility: hidden;
+	
+	label {
+	    display: table-cell;
+	    vertical-align: middle;
+	}
+
+	input {
+	    display: table-cell;
+	    vertical-align: middle;
+	}
+    }
+}
+

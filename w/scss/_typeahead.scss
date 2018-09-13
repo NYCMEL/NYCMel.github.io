@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-typeahead
+///////////////////////////////////////////
+#wc {
+    wc-typeahead {
+	display: block;
+	visibility: hidden;
+	width: 100%;
+
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	    color: #CCC;
+	    opacity: 1; /* Firefox */
+	}
+	
+	.typeahead {
+	    background-color: #fff;
+	    font-weight: bold!important;
+	    padding:10px;
+
+	    &:not(.border-all) {
+		border:0;
+		border-bottom:3px #cecece solid;
+	    }
+
+	    &.border-all {
+		border: 1px #CCC solid;
+	    }
+	}
+
+	.tt-menu {
+	    overflow: auto;
+	    margin: 0;
+	    padding: 20px 0;
+	    background-color: #fff!important;
+	    color: #999;
+	    opacity: 0.90;
+	}
+
+	.tt-suggestion {
+	    padding-bottom:10px;
+	}
+
+	.tt-suggestion:hover {
+	    cursor: pointer;
+	    color: #000;
+	    background-color: #FFF;
+	}
+
+	.tt-suggestion.tt-cursor {
+	    color: #000;
+	    background-color: #f7f7f7;
+	}
+
+	.tt-suggestion p {margin: 0;}
+	.gist {font-size: 14px;}
+
+	.tt-hint {
+	    color: #CCC
+	}
+    }
+}
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Carouselbs Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+
+	<style>
+	 img {
+	     max-height:650px;
+	 }
+	</style>
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.1.html"></div>
+	
+	<!-- SAMPLE -->
+	<button id="btn-trigger" class="btn btn-outline-primary btn-lg" onclick="document.getElementById('my-carousel').style.display='block'" style="min-width:120px;">FULL SCREEN CAROUSEL</button>
+	<hr>
+
+	<wc-carouselbs id="my-carousel" active="1" class="modal">
+	    <div id="section-1">
+		<wc-carouselbs-header>
+		    TITLE GOES HERE
+		</wc-carouselbs-header>
+		
+		<wc-carouselbs-body>
+		    <img class="d-block w-100" src="/Melify/mtk/dev/tk/img/common/placeholder.png">
+		</wc-carouselbs-body>
+
+		<wc-carouselbs-footer>
+		    LOREM ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+		    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+		    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+		</wc-carouselbs-footer>
+	    </div>
+
+	    <div id="section-2">
+		<wc-carouselbs-header>
+		    2: TITLE GOES HERE
+		</wc-carouselbs-header>
+		
+		<wc-carouselbs-body>
+		    <img class="d-block w-100" src="/Melify/mtk/dev/tk/img/common/placeholder.png">
+		</wc-carouselbs-body>
+		
+		<wc-carouselbs-footer>
+		    IPSUM dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+		    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+		    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+		</wc-carouselbs-footer>
+	    </div>
+
+	    <div id="section-3">
+		<wc-carouselbs-header>
+		    3: TITLE GOES HERE
+		</wc-carouselbs-header>
+		
+		<wc-carouselbs-body>
+		    <img class="d-block w-100" src="/Melify/mtk/dev/tk/img/common/placeholder.png">
+		</wc-carouselbs-body>
+
+		<wc-carouselbs-footer>
+		    AMET, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+		    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+		    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+		</wc-carouselbs-footer>
+	    </div>
+	</wc-carouselbs>
+	<!-- SAMPLE -->
+
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+	
+	<script>
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/carouselbs.js'],
+	     nope : [ '../js/include.js',  '../js/carouselbs.js']
+	 });
+	</script>
+	<!-- DEVELOPMENT CODE (END) -->
+
+	<!-- APPLICATION SUBSCRIBER (START) -->
+	<script>
+	 wc.subscribe("wc-carouselbs", function(e) {
+	     console.info("'wc-carouselbs' subscription was triggered:", JSON.stringify(e.detail));
+
+	     $("body").append("<hr />" + JSON.stringify(e.detail));
+	 });
+
+	 setTimeout(function(){
+	     $("#btn-trigger").click();
+	 }, 200);
+	</script>
+	<!-- APPLICATION SUBSCRIBER (END) -->
+    </body>
+</html>
+
+
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Ranger Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/GitHub/jquery-ui/themes/base/all.css">
+
+	<style>
+	 #container {
+	     width:935px;
+	     height:300px;
+	     margin:50px;
+	     background:#f7f7f7;
+	     background: url(../tmp/tmp.chart.png);
+	     background-size: 100% 100%;
+	 }
+	</style>
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.1.html"/></div>
+	
+	<!-- SAMPLE -->
+	<div id="container">
+	    <wc-ranger id="my-ranger-1" style="width:300px;left:500px"></wc-ranger>
+	</div>
+	<!-- SAMPLE -->
+
+	<div class="container" >
+	    <div class="row" >
+		<div class="col-1" style="text-align:center">
+		    LEFT
+		    <input type="text"  class="form-control"  id="left">
+		</div>
+
+		<div class="col-1" style="text-align:center">
+		    RIGHT
+		    <input type="text"  class="form-control"  id="right">
+		</div>
+
+		<div class="col-1" style="text-align:center">
+		    WIDTH
+		    <input type="text"  class="form-control"  id="width">
+		</div>
+	    </div>
+	</div>
+
+	<hr />
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<script>
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/ranger.js'],
+	     nope : [ '../js/include.js',  '../js/ranger.js']
+	 });
+	</script>
+	<!-- DEVELOPMENT CODE (END) -->
+
+	<script>
+	 wc.subscribe("wc-ranger", function(e) {
+	     $("#left").val(e.detail.left);
+	     $("#width").val(e.detail.width)
+	     $("#right").val(e.detail.left + e.detail.width);
+	 });
+	</script>
+    </body>
+</html>
+
+
+

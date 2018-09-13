@@ -1,0 +1,25 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-popup
+///////////////////////////////////////////
+#wc {
+    wc-popup {
+	visibility: hidden;
+	border: 1px #CCC solid;
+	display: none;
+	padding: 10px;
+	background: lighten(#f0f0f0,15%)!important;
+	overflow: auto;
+
+	position: absolute;
+	z-index: 1;
+
+	-webkit-box-shadow: 1px 1px 20px #ebebeb!important;
+	box-shadow: 1px 1px 20px #ebebeb!important;
+    }
+}
+

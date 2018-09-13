@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Textarea Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="../dist/wc.css"  rel="stylesheet" />
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.2.html"/></div>
+
+	<!-- SAMPLE -->
+	<div class="clearfix">
+	    <div class="col-md-6">
+		<h3 class="h3-direction">Horizontal</h3>
+		<wc-form name="my-form" role="form" id="my-form" class="form-control-md" style="border:1px #CECECE solid;padding:20px">
+		    <!-- START ACTUAL COMPONENT CODE -->
+		    <wc-textarea id="my-notes" label="Enter your Notes" columns="4,8" placeholder="Your notes ..."  help="Notes is a required field" required></wc-textarea>
+		    <!-- END ACTUAL COMPONENT CODE -->
+		    
+		    <div class="form-group">
+			<input type="submit" name="action" value="LET'S GO" class="btn btn-info" id="submit-btn-1">
+		    </div>
+		</wc-form>
+	    </div>
+	</div>
+	<!-- SAMPLE -->
+
+	<!-- DEVELOPMENT CODE -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+	
+	<script>
+	 wc.include()
+
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/form.js', '../es5/textarea.js'],
+	     nope : [ '../js/include.js',  '../js/form.js',  '../js/textarea.js']
+	 });
+	</script>
+	<!-- END DEVELOPMENT -->
+
+	<!-- SUBSCRIPTIONS -->
+	<script>
+	 wc.subscribe("my-form-actual", e => {
+	     // CALL YOUR LOGIN FUNCTION NOW
+	     console.log("wc.subscribe called", e.detail.id, e.detail.values);
+
+	     $("body").append("<hr />" + JSON.stringify(e.detail));
+	 });
+	</script>
+    </body>
+</html>
+
+
