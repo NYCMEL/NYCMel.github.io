@@ -1,3 +1,0 @@
-cd /Melify/mtk/dev/tk/lib/components/w/js
-
-jsdoc -r -d ../doc *.js
