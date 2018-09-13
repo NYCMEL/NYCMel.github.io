@@ -1,0 +1,37 @@
+body {
+  color: #333; }
+  body * {
+    border-radius: 0 !important; }
+  body h1, body h2, body h3, body h4, body h5 {
+    text-transform: uppercase; }
+  body h4 {
+    color: #004D40 !important; }
+  body h5 {
+    color: #6D4C41 !important; }
+  body #rhs {
+    border-left: 1px #ebebeb solid; }
+  body #lhs {
+    height: 100vh; }
+    body #lhs #lhs-container {
+      padding: 30px; }
+    body #lhs img {
+      margin-top: 15vh; }
+  body section {
+    margin-left: 40px;
+    margin-bottom: 40px; }
+    body section p {
+      margin-top: 5px; }
+    body section section {
+      margin-top: 20px;
+      margin-left: 40px; }
+    body section h4 {
+      color: #000;
+      border-bottom: 1px #cecece dashed;
+      padding-bottom: 10px; }
+    body section small {
+      font-size: 16px;
+      font-style: italic;
+      color: #6D4C41 !important; }
+    body section #about {
+      font-size: 18px;
+      font-style: italic; }
