@@ -1,0 +1,54 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-check
+///////////////////////////////////////////
+#wc {
+    wc-check {
+	display: block;
+	visibility: hidden;
+
+	.form-group {
+	    width: 100%;
+	    display: block;
+	    margin-right: 20px;
+
+	    input {
+		&[type=checkbox] {
+		    /* hide the checkbox itself */
+		    display:none;
+		}
+
+		&[type=checkbox] + label:before {
+		    font-family: FontAwesome;
+		    display: inline-block;
+		    width:25px;
+		}
+
+		&[type=checkbox] + label:before {
+		    /* unchecked icon */
+		    content: "\f096";
+		    color: #333;
+		}
+
+		&[type=checkbox] + label:before {
+		    /* space between checkbox and label */
+		    letter-spacing: 10px;
+		}
+
+		&[type=checkbox]:checked + label:before {
+		    /* checked icon */
+		    content: "\f046";
+		}
+
+		&[type=checkbox]:checked + label:before {
+		    /* allow space for check mark */
+		    letter-spacing: 5px;
+		}
+	    }
+	}
+    }
+}

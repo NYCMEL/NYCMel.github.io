@@ -1,0 +1,54 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-radio
+///////////////////////////////////////////
+#wc {
+    wc-radio {
+	display: block;
+	visibility: hidden;
+
+	.form-group {
+	    width: 100%;
+	    margin-right: 20px;
+	    display: block;
+
+	    input {
+		&[type=radio] {
+		    /* hide the radio itself */
+		    display:none;
+		}
+
+		&[type=radio] + label:before {
+		    font-family: FontAwesome;
+		    display: inline-block;
+		    width:25px;
+		}
+
+		&[type=radio] + label:before {
+		    /* unchecked icon */
+		    content: "\f1db";
+		    color: #333;
+		}
+
+		&[type=radio] + label:before {
+		    /* space between radio and label */
+		    letter-spacing: 10px;
+		}
+
+		&[type=radio]:checked + label:before {
+		    /* checked icon */
+		    content: "\f058";
+		}
+
+		&[type=radio]:checked + label:before {
+		    /* allow space for radio mark */
+		    letter-spacing: 5px;
+		}
+	    }
+	}
+    }
+}

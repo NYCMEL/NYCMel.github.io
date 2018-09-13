@@ -1,0 +1,141 @@
+{
+    "class": "table-bordered table-striped",
+
+    "columns": [
+	{"title": "ID", "data" : "id", "className":"col-id"},
+	{"title": "Date", "data" : "date", "className":"col-date"},
+	{"title": "Product", "data" : "product", "className":"col-product"},
+	{"title": "Quantity", "data" : "quantity", "className":"col-quantity"},
+	{"title": "Paid", "data" : "paid", "className":"col-paid"},
+	{"title": "Balance", "data" : "balance", "className":"col-balance"},
+	{"title": "Total", "data" : "total", "className":"col-total"}
+    ],
+    "data": [
+	{
+            "id": 1,
+	    "date": "Jan 20, 2015",
+	    "product": "Normal Sim",
+	    "quantity": "1000",
+	    "paid": "$18,893.00",
+	    "balance": "$131,107.00",
+	    "total": "$150,000.00"
+	},
+	{
+	    "id":2,
+	    "date": "Feb 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "10,000",
+	    "paid": "$2,520,000.00",
+	    "balance": "$12,480,000.00",
+	    "total": "$15,000,000.00"
+	},
+	{
+	    "id":3,
+	    "date": "Mar 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "100,000",
+	    "paid": "$404,000.00",
+	    "balance": "$1,096,000.00",
+	    "total": "$1,500,000.00"
+	},
+	{
+	    "id":4,
+	    "date": "Jan 20, 2015",
+	    "product": "Normal Sim",
+	    "quantity": "1000",
+	    "paid": "$18,893.00",
+	    "balance": "$131,107.00",
+	    "total": "$150,000.00"
+	},
+	{
+	    "id":5,
+	    "date": "Feb 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "10,000",
+	    "paid": "$2,520,000.00",
+	    "balance": "$12,480,000.00",
+	    "total": "$15,000,000.00"
+	},
+	{
+	    "id":6,
+	    "date": "Mar 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "100,000",
+	    "paid": "$404,000.00",
+	    "balance": "$1,096,000.00",
+	    "total": "$1,500,000.00"
+	},
+	{
+	    "id":7,
+	    "date": "Jan 20, 2015",
+	    "product": "Normal Sim",
+	    "quantity": "1000",
+	    "paid": "$18,893.00",
+	    "balance": "$131,107.00",
+	    "total": "$150,000.00"
+	},
+	{
+	    "id":8,
+	    "date": "Feb 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "10,000",
+	    "paid": "$2,520,000.00",
+	    "balance": "$12,480,000.00",
+	    "total": "$15,000,000.00"
+	},
+	{
+	    "id":9,
+	    "date": "Mar 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "100,000",
+	    "paid": "$404,000.00",
+	    "balance": "$1,096,000.00",
+	    "total": "$1,500,000.00"
+	},
+	{
+	    "id":10,
+	    "date": "Jan 20, 2015",
+	    "product": "Normal Sim",
+	    "quantity": "1000",
+	    "paid": "$18,893.00",
+	    "balance": "$131,107.00",
+	    "total": "$150,000.00"
+	},
+	{
+	    "id":11,
+	    "date": "Feb 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "10,000",
+	    "paid": "$2,520,000.00",
+	    "balance": "$12,480,000.00",
+	    "total": "$15,000,000.00"
+	},
+	{
+	    "id":12,
+	    "date": "Mar 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "100,000",
+	    "paid": "$404,000.00",
+	    "balance": "$1,096,000.00",
+	    "total": "$1,500,000.00"
+	},
+	{
+	    "id":13,
+	    "date": "Jan 20, 2015",
+	    "product": "Normal Sim",
+	    "quantity": "1000",
+	    "paid": "$18,893.00",
+	    "balance": "$131,107.00",
+	    "total": "$150,000.00"
+	},
+	{
+	    "id":14,
+	    "date": "Feb 20, 2015",
+	    "product": "Nokia 3310",
+	    "quantity": "10,000",
+	    "paid": "$2,520,000.00",
+	    "balance": "$12,480,000.00",
+	    "total": "$15,000,000.00"
+	}
+    ]
+}

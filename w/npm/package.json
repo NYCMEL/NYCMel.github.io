@@ -1,0 +1,59 @@
+{
+  "name": "w",
+  "version": "1.0.0",
+  "description": "Mel's W3C components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NYCMEL/w.git"
+  },
+  "keywords": [
+    "W3C",
+    "Components"
+  ],
+  "author": "Mel M. Heravi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NYCMEL/w/issues"
+  },
+  "homepage": "https://github.com/NYCMEL/w#readme",
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "bootstrap-validator": "git+https://github.com/1000hz/bootstrap-validator.git",
+    "datatables": "git+https://github.com/DataTables/DataTables.git",
+    "datatables.net": "^1.10.16",
+    "datatables.net-fixedcolumns": "^3.2.4",
+    "document-register-element": "git+https://github.com/WebReflection/document-register-element.git",
+    "dragula": "^3.7.2",
+    "highcharts": "^6.1.0",
+    "jquery": "^3.3.1",
+    "jquery-dialog": "git+https://github.com/makeup-jquery/jquery-dialog.git",
+    "jquery-form": "git+https://github.com/jquery-form/form.git",
+    "moment": "^2.22.2",
+    "muuri": "^0.5.4",
+    "pace": "0.0.4",
+    "noty": "^3.2.0-beta",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.1",
+    "select2-bootstrap-theme": "0.1.0-beta.10",
+    "sidr": "git+https://github.com/artberri/sidr.git",
+    "slick-carousel": "git+https://github.com/kenwheeler/slick.git",
+    "tether": "^1.4.3",
+    "typeahead.js": "git+https://github.com/twitter/typeahead.js.git",
+    "zepto": "^1.2.0"
+  },
+  "dependencies": {
+    "blockui": "^1.0.0",
+    "bootstrap-datepicker": "^1.7.1",
+    "datatables.net-bs4": "^1.10.16",
+    "jquery-focusable": "^1.0.1",
+    "jquery-keyboard-trap": "^1.0.1",
+    "jquery-next-id": "^1.0.1",
+    "jquery-screenreader-trap": "^1.0.1",
+    "select2": "^4.0.6-rc.1",
+    "slick": "^1.12.2"
+  }
+}

@@ -1,0 +1,25 @@
+#packer {
+    .btn {
+	border-radius: 0;
+	margin: 5px;
+	min-width:150px;
+	position: relative;
+	
+	&[aria-pressed=true] {
+	    color: steelblue;
+	    border: 1px steelblue solid;
+	    background: lighten(steelblue, 45%);
+
+	    &:before {
+		position: absolute;
+		top: 5px;
+		left: 10px;
+		font-family: FontAwesome;
+		content: "\f00c";
+		font-size: 16px;
+		color: steelblue;
+	    }
+	}
+    }
+}
+

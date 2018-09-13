@@ -1,0 +1,66 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-table-plain
+///////////////////////////////////////////
+#wc {
+    wc-table-plain {
+	font-size: $font-size-base!important;
+	display: block;
+	visibility: hidden;
+	margin:0;
+	padding:0;
+
+	.table-jpmc {
+	    width: 100%;
+	    background:transparent;
+	    border:0!important;
+
+	    thead {
+		border-bottom: 1px #ebebeb solid!important;
+		
+		th {
+		    border:0!important;
+		    background: #FFF;
+		    font-family: Amplitude;
+		    font-size: $font-size-small;
+		    font-weight: 400!important;
+		    line-height: 21px;
+		    color: #63666a;
+		}
+	    }
+
+	    tbody {
+		tr, td, th {
+		    border:0!important;
+		}
+
+		tr {
+		    border-bottom: 1px #ebebeb solid!important;
+		    line-height: 21px!important;
+
+		    td {
+			line-height:35px!important;
+			font-size: $font-size-small!important;
+		    }
+		}
+
+		.wc-table-col-1,
+		.wc-table-col-3 {
+		    color: #2b2b2b;
+		    font-family: Amplitude Bold!important;
+		    font-weight: 500;
+		}
+
+		.wc-table-col-2 {
+		    color: #63666a;
+		    font-family: Amplitude Medium!important;
+		}
+	    }
+	}
+    }
+}
+

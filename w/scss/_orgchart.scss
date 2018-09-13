@@ -1,0 +1,25 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-orgchart
+///////////////////////////////////////////
+#wc {
+    wc-orgchart {
+	font-size: $font-size-base;
+	display: block;
+	visibility: hidden;
+	position: relative;
+
+	.orgchart {
+	    background: white;
+
+	    .symbol {
+		margin-left:5px;
+	    }
+	}
+    }
+}
+

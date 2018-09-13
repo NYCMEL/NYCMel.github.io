@@ -1,0 +1,43 @@
+a {
+  text-decoration: none !important; }
+
+.hamberger {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: lime; }
+
+.a-swiper {
+  margin-top: 40px; }
+
+.a-swiper#swiper-0 .menus h3 {
+  text-transform: uppercase;
+  color: gold; }
+
+.a-swiper#swiper-0 .menus ul {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase; }
+
+.a-swiper#swiper-0 .menus ul li {
+  list-style: none;
+  height: 40px;
+  line-height: 40px; }
+
+.a-swiper#swiper-1 ul {
+  margin-top: 60px;
+  background: transparent; }
+
+.a-swiper#swiper-1 ul li {
+  background: transparent;
+  font-size: 24px;
+  font-family: Amplitude Regular;
+  text-align: center;
+  border: 1px lime solid; }
+
+.a-swiper#swiper-1 ul li a {
+  text-transform: uppercase;
+  color: lime !important; }
+
+.a-swiper#swiper-1 #disclaimer {
+  margin-top: 60px; }

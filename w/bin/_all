@@ -1,0 +1,10 @@
+#!/bin/sh env tclkit
+
+exec touch ../scss/wc.scss
+
+after 3000
+
+source _js
+source _es5
+source _doc
+source _dist

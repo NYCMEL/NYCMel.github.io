@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Table-plain Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+
+	<script>
+	 function handleEvents(args) {
+	     console.log("handleEvents called:", args);
+	 }
+	</script>
+
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.1.html"/></div>
+	
+	<!-- SAMPLE -->
+	<wc-table-plain id="my-table-plain-1">
+	    <span class="wc-loading-img"></span>
+	</wc-table-plain>
+	<!-- SAMPLE -->
+
+	<hr />
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+	
+	<script src="/Melify/mtk/dev/tk/lib/components/w/cfg/table.json"></script>
+
+	<script>
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/table-plain.js'],
+	     nope : [ '../js/include.js',  '../js/table-plain.js']
+	 });
+	</script>
+	<!-- DEVELOPMENT CODE (END) -->
+
+	<script>
+	 setTimeout(function(){
+	     let tbl = document.querySelector("#my-table-plain-1")
+	     tbl.configure(tdata);
+	 }, 200);
+	</script>
+
+	<!-- APPLICATION SUBSCRIBER (START) -->
+	<script>
+	 wc.subscribe("wc-table-plain", function(e) {
+	     console.info("'wc-table-plain' subscription was triggered:", JSON.stringify(e.detail));
+
+	     $("body").append("<hr />" + JSON.stringify(e.detail));
+	 });
+	</script>
+	<!-- APPLICATION SUBSCRIBER (END) -->
+    </body>
+</html>

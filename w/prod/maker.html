@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Maker Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- COMMON TO ALL COMPONENTS -->
+	<link href="../dist/wc.bundle.css" rel="stylesheet" />
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<!-- ACTUAL COMPONENT CODE IS HERE -->
+	<!-- YOU WILL RECEIVE "uparam" WITH AEACH PUBLICATION -->
+	<wc-maker id="my-maker" uparam="{from:'Mel Heravi', to:'You', link:'http://www.melify.com'}" background="yellow" header="I AM A TEMPLATE <i class='fa fa-smile-o'></i>">
+	    <h4><i class="fa fa-info-circle"></i> Used by maker to create consistent components</h4>
+	    <p>you can click on me to get a callback</p>
+	</wc-maker>
+
+	<hr>
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<!-- COMMON TO ALL COMPONENTS -->
+	<script>wcApp="w"</script>
+	<script src="../dist/wc.bundle.js"></script> 
+	<script src="../ext/melify/btns.js"></script> 
+	
+	<script>
+	 //////////////////////////////////
+	 // SUBSCRIPTIONS
+	 //////////////////////////////////
+	 wc.subscribe("wc-maker", function(e) {
+	     console.info("'wc-maker' subscription was triggered:", JSON.stringify(e.detail));
+
+	     mq("body").append("<hr>" + JSON.stringify(e.detail));
+	 });
+	</script>
+    </body>
+</html>
+
+

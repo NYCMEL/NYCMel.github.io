@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Matrix Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="../scss/ext/matrix/normalize.min.css">
+	<script src="../js/ext/matrix/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+	<link rel="stylesheet" href="../dist/matrix.css">
+    </head>
+
+    <body id="wc">
+	<!-- SAMPLE -->
+	<script src="/Melify/mtk/dev/tk/lib/components/w/cfg/matrix.cfg"></script> 
+
+	<wc-matrix id="my-matrix"></wc-matrix>
+	<!-- SAMPLE -->
+
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+
+	<script>
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/groupbox.js', '../es5/dropdown.js', '../es5/check.js', '../es5/matrix.js', '../es5/matrix.util.js'],
+	     nope : [ '../js/groupbox.js',  '../js/dropdown.js',  '../js/check.js',  '../js/matrix.js',  '../js/matrix.util.js']
+	 });
+	</script>
+    </body>
+</html>
+
+
+
