@@ -14,11 +14,9 @@ body h5 {
   color: #6D4C41 !important; }
 
 body #rhs {
-  border: 1px red solid;
   border-left: 1px #ebebeb solid; }
 
 body #lhs {
-  border: 1px red solid;
   height: 100vh; }
 
 body #lhs #lhs-container {
