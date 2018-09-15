@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Form Component</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="../../dist/wc.bundle.css"  rel="stylesheet" />
+    </head>
+
+    <body id="wc">
+        <BR>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- START ACTUAL COMPONENT CODE -->
+                    <wc-card id="my-card-1">
+                        <wc-card-header>
+                            Card Header (image top)
+                        </wc-card-header>
+                        
+                        <wc-card-img position="top">
+                            <img src="/Melify/mtk/dev/tk/lib/components/w/img/tmp/12s.jpg" width="100%" />
+                        </wc-card-img>
+			
+                        <wc-card-body>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren
+                        </wc-card-body>
+			
+                        <wc-card-footer>
+                            Card Footer
+                        </wc-card-footer>
+                    </wc-card>
+                    <!-- END ACTUAL COMPONENT CODE -->
+		    
+                    <hr>
+                    <button class="btn btn-outline-danger" onClick="test.card()" style="min-width:120px">EDIT</button>
+                </div>
+		
+                <div class="col-md-6" id="main-container">
+                </div>
+            </div>
+        </div>
+	
+        <!-- COMMON TO ALL COMPONENTS -->
+        <script>wcApp="w"</script>
+        <script src="../../dist/wc.bundle.js"></script>
+        <script src="./forms.js"></script>
+        
+        <script>
+         //////////////////////////////////
+         // SUBSCRIPTIONS
+         //////////////////////////////////
+         wc.subscribe("my-form", function(e) {
+             console.info("'my-form' SUBSCRIPTION WAS TRIGGERED:", JSON.stringify(e.detail));
+             $("body").append("<hr />" + JSON.stringify(e.detail.values));
+	     
+             // CALL UPDATER
+             update.card("my-card-1", e.detail.values);
+         });
+        </script>
+    </body>
+</html>

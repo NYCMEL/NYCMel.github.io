@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Tile Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<style>
+	 body {
+	     margin:0;
+	     padding:0;
+	     background: #ebebeb;
+	 }
+	</style>
+
+	<nav class="navbar navbar-light bg-light" style="background:transparent!important">
+	    <div class="float-left">
+		<a class="navbar-brand" href="#"><img src="/tk/img/common/melify.gif" class="mt-3 mb-3"></a>
+	    </div>
+	    <div class="float-left">
+		<a class="navbar-brand" href="#">WEB COMPONENTS SPOKEN HERE</a>
+	    </div>
+	</nav>
+
+	<div class="container-fluid" >
+	    <div class="row" >
+		<div class="col-md-3" >
+		    <wc-listbox id="my-listbox" width="100%" class="shadow">
+			<ul class="list-group">
+			    <li id="item-1" class="list-group-item">First item</li>
+			    <li id="item-2" class="list-group-item active">Second item</li>
+			    <li id="item-3" class="list-group-item">Third item</li>
+			    <li id="item-4" class="list-group-item">Fourth item</li>
+			    <li id="item-5" class="list-group-item">Fifth item</li>
+			</ul>
+		    </wc-listbox>
+		</div>
+
+		<div class="col-md-9" >
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#C2185B">
+			    FRAMEWORK INDEPENDENT
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    BUILD COMPONENTS ONCE AND USE THEM IN ANY WEB-BASED FRAMEWORK
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#03A9F4">
+			    REAL-TIME STATISTICS!
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    KNOW WHAT IS USED WHERE, WHEN AND HOW OFTEN. AND MAKE 'SMART DECISIONS'
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#009688">
+			    SINGLE SOURCE
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    ONE PLACE TO ENHANCE, AND SOLVE POTENTIAL ISSUES AND MAKE THINGS MORE EFFICIENT
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#FF6F00">
+			    REDUCED CODE BASE SIZE
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    TWO ORDER OF MAGNITUDE LESS CODE TO BE WRITTEN, RE-WRITTEN AND MANAGED
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#A1887F">
+			    INTELLIGENT COMPONENTS
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    HTML/CSS/JAVASCRIPTS AND BUSINESS LOGIC ALL ENCAPSULATED WITHIN EACH COMPONENT
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#00BFA5">
+			    REDUCED MANPOWER
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    TWO ORDER OF MAGNITUDE LESS CODERS, AND FAR LESS KNOWLEDGE REQUIREMENTS
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#5E35B1">
+			    FASTER TIME TO MARKET
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    TWO ORDER OF MANGITUDE FASTER TO PRODUCE APPLICATIONS
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#689F38">
+			    RE-USABLE & EXTENSIBLE
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    NO THROW AWAY CODE OR RE-WRITES. USE & RE-USE COMPONENTS
+			</wc-tile-description>
+		    </wc-tile>
+
+		    <wc-tile id="my-tile-1" style="width:30%;height:250px" class="float-left mr-3 mb-3 shadow">
+			<wc-tile-title style="color:#ef5350">
+			    CLOUDABLE
+			</wc-tile-title>
+			
+			<wc-tile-description>
+			    MANAGE YOUR COMPONENTS ON THE CLOUD AND USE THEM IN YOUR APP WITH CDN
+			</wc-tile-description>
+		    </wc-tile>
+		</div>
+	    </div>
+	</div>
+
+	<BR><BR>
+	<div style="background:#666;color:#FFF;height:100px">
+	    <div class="container-fluid" >
+		<div class="row" >
+		    <div class="col-md-3 p-3">
+			Melify.com@2018
+		    </div>
+		</div>
+	    </div>
+	</div>
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+	
+	<script>
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/tile.js', '../es5/center.js', '../es5/listbox.js'],
+	     nope : [ '../js/include.js',  '../js/tile.js',  '../js/center.js',  '../js/listbox.js']
+	 });
+	</script>
+	<!-- DEVELOPMENT CODE (END) -->
+
+	<!-- APPLICATION SUBSCRIBER (START) -->
+	<script>
+	 wc.subscribe("wc-tile", function(e) {
+	     console.info("'wc-tile' subscription was triggered:", JSON.stringify(e.detail));
+
+	     $("body").append("<hr />" + JSON.stringify(e.detail));
+	 });
+	</script>
+	<!-- APPLICATION SUBSCRIBER (END) -->
+    </body>
+</html>
+
+
+

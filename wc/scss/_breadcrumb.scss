@@ -1,0 +1,26 @@
+@import "variables";
+@import "mixins";
+@import "media";
+
+#wc {
+    wc-breadcrumb {
+	display:block;
+	margin:0;
+	padding:0;
+	font-size: $font-size-base;
+
+	ol {
+	    background:transparent!important;
+
+	    li {
+		a {
+		    color: #0096D6!important;
+		}
+
+		&.active {
+		    color: #5F6062!important;
+		}
+	    }
+	}
+    }
+}

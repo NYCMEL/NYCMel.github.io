@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Table Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+
+	<style>
+	 .col-id, .col-quantity, .col-paid, .col-balance, .col-total {
+	     text-align: right!important;
+	 }
+	</style>
+    </head>
+
+    <body id="wc" type="default" style="margin-left:25px;margin-right:25px">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.1.html"/></div>
+
+	<div>
+	    <h1>JSON TALBLE</h1>
+	    <a href="table.html" class="btn btn-outline-info btn-sm"><i class="fa fa-chevron-left"></i> INLINE TABLE</a>&nbsp;&nbsp;
+	    <a href="table.json.html" class="btn btn-outline-secondary btn-sm">JSON TABLE</a>&nbsp;&nbsp;
+	    <a href="../cfg/table.2.json" class="btn btn-outline-danger btn-sm">VIEW JSON FILE</a>
+	</div>
+	<hr>
+
+	<!-- 
+	     ///////////////////////////////////////////
+	     ///// datatable='{"pagination":false, "search":true,
+	     /////    "info":false, "height":"300px", "sort":{"column":2, "direction":"asc"}}'
+	     ///////////////////////////////////////////
+	-->
+	<!-- START ACTUAL COMPONENT CODE -->
+	<wc-table id='my-table' class="table table-striped" json="../cfg/table.2.json" datatable='{"pagination":false, "search":true, "info":false, "height":300}'>
+	    <!-- WILL BE POPULATED WITH JSON CONTENT -->
+	</wc-table>
+	<!-- END ACTUAL COMPONENT CODE -->
+
+	<hr>
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<script>wcAPP="wc";wcENV="dev"</script>
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+
+	<script>
+	 // USED FOR ALL INCLUDES (NOT REQUIRED FOR PROD)
+	 // TURN ON LOGGGING IN DEV
+	 logger.enableLogger();
+
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/table.js'],
+	     nope : [ '../js/include.js',  '../js/table.js']
+	 });
+
+	 // HIDE COMPONENTS BTN
+	 setTimeout(function(){
+	     $(".btn-components, .btn-code, .btn-js, .btn-style").parent().hide(0);
+	 }, 500);
+	</script>
+	<!-- END DEVELOPMENT -->
+    </body>
+</html>
+
+
+
+

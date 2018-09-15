@@ -1,0 +1,16 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-chart
+///////////////////////////////////////////
+#wc {
+    wc-chart {
+	font-size: $font-size-base;
+	display: block;
+	visibility: hidden;
+    }
+}
+

@@ -1,0 +1,77 @@
+/////////////////////////////////////////////////////////////////////////////////
+//// Time-stamp: <2018-04-14 12:54:49 (melify)>
+/////////////////////////////////////////////////////////////////////////////////
+tkFormCard = {
+    controls: [
+	{type: "submit", label: "Apply"},
+	{type: "button", label: "Reset"},
+    ],
+    columns: [
+        // column-I
+        {
+            class: "col-md-12",
+            items: [
+                {
+                    comp: "wc-text",
+                    type: "text",
+                    id: "cheader",
+                    name: "cheader",
+                    label: "Card Header",
+                    placeholder: "header...",
+                    value: "",
+                    datakey : "cheader",
+		    columns: "12,12",
+		    value: "My Card Header"
+                },
+                {
+                    comp: "wc-text",
+                    type: "text",
+                    id: "cfooter",
+                    name: "cfooter",
+                    label: "Card Footer",
+                    placeholder: "footer...",
+                    value: "",
+                    datakey : "cfooter",
+		    columns: "12,12"
+                },
+                {
+                    comp: "wc-text",
+                    type: "text",
+                    id: "cimage",
+                    name: "cimage",
+                    label: "Card Image",
+                    placeholder: "image src...",
+                    value: "",
+                    datakey : "cimage",
+		    columns: "12,12"
+                },
+                {
+                    comp: "wc-select",
+                    id: "cimagepos",
+                    name: "cimagepos",
+                    label: "Image Position",
+                    value: "0",
+                    searchable: true,
+                    selected: 1,
+                    options : [
+                        {value: 1, name: "Top"},
+                        {value: 2, name: "Bottom"},
+                    ],
+                    datakey : "cimagepos",
+		    columns: "12,12"
+                },
+                {
+                    comp: "wc-textarea",
+                    type: "text",
+                    id: "cdescription",
+                    name: "cdescription",
+                    label: "Description",
+                    placeholder: "description...",
+                    value: "",
+                    datakey : "cdescription",
+		    columns: "12,12"
+                },
+            ]
+        },
+    ]
+}

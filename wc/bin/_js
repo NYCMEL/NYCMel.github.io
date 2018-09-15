@@ -1,0 +1,55 @@
+#!/bin/sh env tclkit
+
+cd /Melify/mtk/dev/tk/lib/components/$root/bin
+
+################################################################################
+#### wc.js
+################################################################################
+set jfiles [subst {
+    ../npm/node_modules/document-register-element/build/document-register-element.max.js
+    ../npm/node_modules/jquery/dist/jquery.js
+    ../npm/node_modules/jquery-form/dist/jquery.form.min.js
+    ../npm/node_modules/bootstrap-validator/dist/validator.js
+
+    ../npm/node_modules/bootstrap/dist/js/bootstrap.bundle.js
+
+    ../npm/node_modules/select2/dist/js/select2.full.js
+    ../npm/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js
+    ../npm/node_modules/typeahead.js/dist/typeahead.bundle.js
+
+    ../npm/node_modules/muuri/muuri.js
+    ../npm/node_modules/dragula/dist/dragula.js
+    ../npm/node_modules/sidr/dist/sidr.js
+    ../npm/node_modules/slick-carousel/slick/slick.js
+
+    ../npm/node_modules/datatables.net/js/jquery.dataTables.js
+    ../npm/node_modules/datatables.net-fixedcolumns/js/dataTables.fixedColumns.js
+    ../npm/node_modules/blockui/jquery.blockUI.js
+    ../npm/node_modules/moment/moment.js
+    ../npm/node_modules/noty/lib/noty.js
+    
+    ../js/ext/csv2table.js
+    ../js/ext/matrix/jquery.customSelect.min.js
+
+    ../js/ext/orgchart.js
+    ../js/ext/swiper.min.js
+    ../js/ext/variables.js
+    ../js/ext/DataBind.js
+    ../js/ext/tk.js
+    ../js/ext/wc.utils.js
+    ../js/ext/wc.js
+    ../js/ext/yepnope.js
+    ../js/ext/pace.js
+
+    ../js/ext/highcharts.js
+    ../js/ext/highcharts.data.js
+    ../js/ext/media.js
+}]
+
+# ../npm/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js
+
+puts "making wc.js ..."
+regsub -all "\\n" $jfiles "" jfiles
+eval exec cat $jfiles > ../dist/wc.js
+
+puts "ENDED."

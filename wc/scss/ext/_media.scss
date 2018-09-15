@@ -1,0 +1,50 @@
+@mixin media-before($size,$bg) {
+    &:before {
+	position: absolute;
+	margin-left: -20px;
+	z-index: 99999999;
+	content: $size;
+	background:$bg;
+	
+	color: #FFF;
+	font-weight:bold;
+	padding-left:10px;
+	padding-right:10px;
+    }
+}
+
+@media (min-width: 320px) {
+    body {
+	border-left: 4px orange dashed;
+
+	@include media-before("XS",orange);
+    }
+}
+@media (min-width: 480px) {
+    body {
+	border-left: 4px #F48FB1 dashed;
+
+	@include media-before("SM",#F48FB1);
+    }
+}
+@media (min-width: 768px) {
+    body {
+	border-left: 4px #9CCC65 dashed;
+
+	@include media-before("MD",#9CCC65);
+    }
+}
+@media (min-width: 994px) {
+    body {
+	border-left: 4px #03A9F4 dashed;
+
+	@include media-before("LG",#03A9F4);
+    }
+}
+@media (min-width: 1200px) {
+    body {
+	border-left: 4px #AB47BC dashed;
+
+	@include media-before("XL",#AB47BC);
+    }
+}

@@ -1,0 +1,37 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-maker
+///////////////////////////////////////////
+#wc {
+    wc-maker {
+	@include responsive-font-size($font-size-medium);
+	display: block;
+	visibility: hidden;
+	
+	padding: 15px;
+	margin: 0;
+	text-align: center;
+	width: 500px;
+	padding: 10px;
+	cursor: pointer;
+	color: #666;
+	@include x-linear-gradient('to bottom', #ebebeb, #FFF, lighten(steelblue,30%));
+	border:10px gray solid;
+	
+	.wc-header {
+	    text-transform: uppercase;
+	    @include responsive-font-size($font-size-xlarge);
+	    font-weight: bold;
+	    color: darken(orange,10%);
+	}
+
+	&:hover {
+	    border: 10px orange solid;
+	    color: #000;
+	}
+    }
+}

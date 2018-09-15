@@ -1,0 +1,47 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+///////////////////////////////////////////
+// wc-tile
+///////////////////////////////////////////
+#wc {
+    wc-tile {
+	@include responsive-font-size($font-size-medium);
+	display: block;
+	visibility: hidden;
+	text-align:center;
+	padding-left:20px;
+	padding-right:20px;
+	border: 1px #cecece solid;
+	background: #FFF;
+	overflow: hidden;
+	color: #333;
+
+	&.clikable {
+	    &:hover {
+		cursor: pointer;
+		outline: 3px #FFB300 solid!important;
+		color: darken(#333,30%);
+	    }
+	}
+
+	wc-tile-title {
+	    display: block;
+	    font-size: 24px;
+	    font-family: Amplitude Regular;
+	    margin-bottom: 10px;
+	    text-transform: uppercase;
+	}
+
+	wc-tile-description {
+	    padding-left:20px;
+	    padding-right:20px;
+	    display: block;
+	    font-size: 16px;
+	    font-family: Amplitude Light;
+	}
+    }
+}
+

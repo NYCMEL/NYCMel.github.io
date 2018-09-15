@@ -1,0 +1,73 @@
+@import "variables";
+@import "mixins";
+@import "media";
+@import "rfs";
+
+#wc {
+    wc-modal {
+	display: block;
+	visibility: none;
+
+	.modal-header {
+	    background: #FFF;
+	    color: #333;
+	    position: relative;
+	    
+	    .close {
+		span {
+		    width:30px;
+		    text-align:middle;
+		    font-size: $font-size-large;
+		    background: #B7B7B7!important;
+		    position:absolute!important;
+		    top:0px!important;
+		    right:0px!important;
+		    color: #414244!important;
+		    opacity:1.0!important;
+		}
+	    }
+	}
+    }
+}
+
+.modal-dialog {
+    border:2px transparent solid!important;
+    position: relative;
+    display: table;
+    overflow-y: auto;    
+    overflow-x: auto;
+    width: auto;
+    min-width: 200px;
+
+    .modal-content {
+	.modal-body {
+	    margin:10px!important;
+	    padding:10px!important;
+	}
+
+	border:0!important;
+	-webkit-box-shadow: none!important;
+	-moz-box-shadow: none!important;
+	-o-box-shadow: none!important;
+	box-shadow: none!important;
+    }
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #414244;
+}
+
+.modal-backdrop.fade {
+    opacity: 0;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}

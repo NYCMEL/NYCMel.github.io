@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Dad Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- DEVELOPMENT SCRIPT -->
+	<link href="../dist/wc.css" rel="stylesheet" />
+    </head>
+
+    <body id="wc">
+	<!-- UTILITIES BLOCK (4 MEL ONLY) -->
+	<div><wc-include href="_actions.1.html"/></div>
+
+	<!-- SAMPLE -->
+	<style>
+	 #my-src {
+	     padding:10px;
+	     background: #f7f7f7;
+	 }
+
+	 #my-src .btn {
+	     text-align:left;
+	     display:block;
+	     margin:2px;
+	 }
+
+	 #my-dst {
+	     border-left: 1px #CCC solid;
+	     padding:10px;
+	     background: #f7f7f7;
+	     min-height:500px!important;
+	 }
+	</style>
+
+	<div class="row">
+	    <div class="col-sm-2" id="my-src">
+		<a id="brown"  href="#" class="btn btn-sm btn-outline-secondary">Brown</a>
+		<a id="orange" href="#" class="btn btn-sm btn-outline-secondary">Orange</a>
+		<a id="green"  href="#" class="btn btn-sm btn-outline-secondary">Green</a>
+	    </div>
+	    
+	    <div class="col-sm-10" id="my-dst">
+	    </div>
+	</div>
+	
+	<!-- START ACTUAL COMPONENT (CALL AFTER JS LOADED) -->
+	<wc-dad id="my-dad" src="my-src" dst="my-dst" copy="true" direction="horizontal"></wc-dad>
+	<!-- END ACTUAL COMPONENT -->
+
+	<hr>
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script src="../dist/wc.js"></script> 
+
+	<script>
+	 //////////////////////////////////
+	 // SUBSCRIPTIONS
+	 //////////////////////////////////
+	 wc.subscribe("wc-dad", function(e) {
+	     console.info("SUBSCRIPTION FOR: wc-dad :", JSON.stringify(e.detail));
+
+	     //$("body").append("<BR>" + JSON.stringify(e.detail));
+
+	     dad = document.querySelector("#my-dad");
+
+	     // ADD NEW ELEMENT. ELSE WE ARE SHUFFLING STUFF
+	     if (e.detail.new) {
+		 let id = "div-" + Math.floor( Math.random() * 100 );
+
+		 if (e.detail.sibling != null) {
+		     let sid = e.detail.sibling.getAttribute("id");
+
+		     $("#my-dst #" + sid).before("<div id='" + id + "' style='display:inline-block;margin:10px' wc-include='../tmp/dad.html'><span class='wc-loading-img'></span></div>");
+		 } else {
+		     $("#my-dst").append("<div id='" + id + "' style='display:inline-block;margin:10px' wc-include='../tmp/dad.html'><span class='wc-loading-img'></span></div>");
+		 }
+		 setTimeout(function(){
+		     $("#" + id + " .card").css("border", "3px solid " + e.detail.did);
+		     $("#" + id + " .card-header").html(e.detail.did + " | " + id);
+		 }, 200);
+	     }
+	 });
+	</script>
+	<!-- SAMPLE -->
+
+	<script>
+	 // USED FOR ALL INCLUDES (NOT REQUIRED FOR PROD)
+	 wc.include()
+
+	 // TURN ON LOGGGING IN DEV
+	 logger.enableLogger();
+	 
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/dad.js'],
+	     nope : [ '../js/include.js',  '../js/dad.js']
+	 });
+	</script>
+	<!-- END DEVELOPMENT -->
+    </body>
+</html>

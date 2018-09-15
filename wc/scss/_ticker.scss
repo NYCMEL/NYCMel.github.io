@@ -1,0 +1,12 @@
+///////////////////////////////////////////
+// wc-ticker
+///////////////////////////////////////////
+#wc {
+    wc-ticker {
+	font-size: $font-size-base;
+	visibility: hidden;
+
+	wc-ticker-container {
+	}
+    }
+}
