@@ -2,6 +2,8 @@
 
 cd ../js
 
+file delete -force ../es5/*
+
 set presets "/usr/local/lib/node_modules/babel-preset-latest"
 
 ##############################################
