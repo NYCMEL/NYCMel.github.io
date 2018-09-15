@@ -1,0 +1,21 @@
+#!/Melify/bin/mac/tclkit
+
+set f [open ../../dist/wc.bundle.css r]
+set r [read $f]
+close $f
+
+set items {
+    "../fonts"		"/wc/fonts"
+    "../assets"		"/wc/assets"
+    "./loading.gif"	"/wc/assets/loading.gif"
+    "../ext/"		"/wc/ext"
+}
+
+foreach {i j} $items {
+    regsub -all "$i" $r "$j" r
+}
+
+set f [open ./wc.bundle.css w]
+puts $f $r
+close $f
+

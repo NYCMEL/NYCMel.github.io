@@ -1,0 +1,60 @@
+###############################################
+##### 
+###############################################
+proc fread {file} {
+    set fp [open $file r]
+    set txt [read $fp]
+    close $fp
+    return $txt
+}
+
+###############################################
+##### 
+###############################################
+proc fwrite {file txt} {
+    set fp [open $file w]
+    puts $fp $txt
+    close $fp
+}
+
+################################################################################
+####
+################################################################################
+if {$argc < 2} {
+    puts "\nusage: component <component name ie. tab, card panel>\n"
+    exit
+}
+
+set name [lindex $argv 1]
+
+puts "\nCREATE $name COMPONENT NOW...";flush stdout
+
+# PROCESS THE HTML FILE
+puts "\tcreating $name.html...";flush stdout
+
+set r [fread "../html/maker.html"]
+regsub -all "maker"     $r "$name" r
+regsub -all "Maker"     $r [string totitle "$name"] r
+regsub -all "mtk-"	$r "wc-" r
+
+fwrite ../html/$name.html $r
+
+# PROCESS THE COMPONENT FILES
+puts "\tcreating $name.js...";flush stdout
+set r [fread "../js/maker.js"]
+
+regsub -all "maker" $r "$name" r
+regsub -all "Maker" $r [string totitle "$name"] r
+regsub -all "mtk-"  $r "wc-" r
+
+fwrite ../js/$name.js $r
+
+# SCSS FILE NOW
+puts "\tcreating _$name.scss...";flush stdout
+set r [fread ../scss/_maker.scss]
+regsub -all "maker"     $r "$name" r
+regsub -all "Maker"     $r [string totitle "$name"] r
+regsub -all "mtk-"	$r "wc-" r
+fwrite ../scss/_$name.scss $r
+
+puts "DONE.\n";flush stdout

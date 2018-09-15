@@ -1,0 +1,82 @@
+// https://github.com/MartijnCuppens/simple-media-queries
+
+/*
+@include down(600) {
+    // Theming for small screens here
+}
+
+@include between(600, 1200) {
+    // Theming for screens between 600px and 1200px here 
+}
+
+@include up(1200) {
+    // Theming for big screens here
+}
+
+@include outside(600, 1200) {
+    // Theming for screens below 600px and above 1200px 
+}
+
+@function simpleMediaQueriesMin($number) {
+    @return $number + 0px;
+}
+
+@function simpleMediaQueriesMax($number) {
+    @return $number - .02px;
+} 
+*/
+
+@function getWidth($width) {
+    @if (type-of($width) == "number") {
+	@return $width;
+    }
+    @if (type-of($width) == "string") {
+	$grid-breakpoints: false !default;
+	@if (not $grid-breakpoints or type-of($grid-breakpoints) != "map"){
+	    @return null;
+	}
+	$w: map-get($grid-breakpoints, $width);
+	@return $w;
+    }
+    @return null;
+}
+
+@mixin up($width) {
+    $width: getWidth($width);
+    @if ($width) {
+	@media (min-width: simpleMediaQueriesMin($width)) {
+	    @content;
+	}
+    }
+}
+
+@mixin down($width) {
+    $width: getWidth($width);
+    @if ($width) {
+	@media (max-width: simpleMediaQueriesMax($width)) {
+	    @content;
+	}
+    }
+}
+
+@mixin between($min, $max) {
+    $min: getWidth($min);
+    $max: getWidth($max);
+
+    @if ($min and $max) {
+	@media (min-width: simpleMediaQueriesMin($min)) and (max-width: simpleMediaQueriesMax($max)) {
+	    @content;
+	}
+    }
+}
+
+@mixin outside($min, $max) {
+    $min: getWidth($min);
+    $max: getWidth($max);
+
+    @if ($min and $max) {
+	@media (max-width: simpleMediaQueriesMax($min)), (min-width: simpleMediaQueriesMin($max)) {
+	    @content;
+	}
+    }
+}

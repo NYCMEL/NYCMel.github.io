@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Listbox Component</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- START DEVELOPMENT -->
+	<link href="../dist/wc.css"  rel="stylesheet" />
+	<!-- END DEVELOPMENT -->
+    </head>
+
+    <body id="wc" style="margin-left:25px;margin-right:25px">
+	<!-- UTILITY BUTTONS FOR MEL ONLY -->
+	<div><wc-include href="_actions.1.html"/></div>
+	
+	<!-- SAMPLE -->
+	<wc-listbox id="my-listbox" width="400px">
+	    <ul class="list-group">
+		<li id="item-1" class="list-group-item">First item</li>
+		<li id="item-2" class="list-group-item active">Second item</li>
+		<li id="item-3" class="list-group-item">Third item</li>
+		<li id="item-4" class="list-group-item">Fourth item</li>
+		<li id="item-5" class="list-group-item">Fifth item</li>
+	    </ul>
+	</wc-listbox>
+	<!-- SAMPLE -->
+
+	<hr>
+	<h5 style="color:indianred">DEVELOPER CONSOLE HAS A LOT OF GOODIES :)</h5>
+
+	<!-- START DEVELOPMENT -->
+	<script src="../dist/wc.js"></script> 
+	<!-- END DEVELOPMENT -->
+
+	<script>
+	 // USED FOR ALL INCLUDES (NOT REQUIRED FOR PROD)
+	 // TURN ON LOGGGING IN DEV
+	 logger.enableLogger();
+
+	 yepnope({
+	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
+	     yep  : ['../es5/include.js', '../es5/listbox.js', '../es5/listbox.js'],
+	     nope : [ '../js/include.js',  '../js/listbox.js',  '../js/listbox.js']
+	 });
+
+	 //////////////////////////////////
+	 // SUBSCRIPTIONS
+	 //////////////////////////////////
+	 wc.subscribe("wc-listbox", function(e) {
+	     console.info("'wc-listbox' subscription was triggered:", JSON.stringify(e.detail));
+
+	     $("body").append("<BR>" + JSON.stringify(e.detail));
+	 });
+	</script>
+	<!-- END DEVELOPMENT -->
+    </body>
+</html>
+
+

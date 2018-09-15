@@ -1,0 +1,65 @@
+/////////////////////////////////////////////////////////////////////////////////
+//// Time-stamp: <2018-04-14 13:09:23 (melify)>
+/////////////////////////////////////////////////////////////////////////////////
+tkFormForm = {
+    controls: [
+	{type: "submit", label: "Apply"},
+	{type: "button", label: "Reset"},
+    ],
+    columns: [
+        // column-I
+        {
+            class: "col-md-12",
+            items: [
+                {
+                    comp: "wc-text",
+                    type: "text",
+                    id: "text",
+                    name: "text",
+                    label: "Text",
+                    placeholder: "text...",
+                    value: "",
+                    datakey : "text",
+		    columns: "3,9",
+		    value: ""
+                },
+                {
+                    comp: "wc-select",
+                    id: "select",
+                    name: "select",
+                    label: "Select",
+                    value: "1",
+                    searchable: false,
+                    selected: 1,
+                    options : [
+                        {value: "", name: "Please Select..."},
+                        {value: 1,  name: "Top"},
+                        {value: 2,  name: "Bottom"},
+                    ],
+                    datakey : "select",
+		    columns: "3,9",
+                },
+                {
+                    comp: "wc-calendar",
+                    id: "calendar",
+                    name: "calendar",
+                    label: "Calendar",
+                    value: "",
+                    datakey : "calendar",
+		    columns: "3,9",
+                },
+                {
+                    comp: "wc-textarea",
+                    type: "text",
+                    id: "textarea",
+                    name: "textarea",
+                    label: "Text Area",
+                    placeholder: "textarea...",
+                    value: "",
+                    datakey : "textarea",
+		    columns: "3,9",
+                },
+            ]
+        },
+    ]
+}

@@ -1,0 +1,3 @@
+cd ../js
+
+jsdoc -r -d ../doc *.js

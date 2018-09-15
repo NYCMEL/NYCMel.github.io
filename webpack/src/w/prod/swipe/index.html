@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<meta charset="UTF-8" />
+	<title>Swipe Component</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+	 .swiper-slide{
+	     height:100vh;
+	     min-height:100vh;
+	     padding-top:40px;
+	     padding-bottom:40px;
+	 }
+	</style>
+    </head>
+
+    <body id="wc" style="padding:0;margin:0;background:#009688;color:#FFF">
+	<!-- SAMPLE -->
+	<wc-swipe id="my-swipe" pagination="false" navigation="false" autoheight="true" space="0" start="1">
+	    <div><span class="wc-loading-img"></span></div>
+	    <div><span class="wc-loading-img"></span></div>
+	    <div><span class="wc-loading-img"></span></div>
+	    <div><span class="wc-loading-img"></span></div>
+	</wc-swipe>
+	<!-- SAMPLE -->
+
+	<!-- DEVELOPMENT CODE (START) -->
+	<script>wcENV="dev";wcApp="w";</script>
+	<script type="text/javascript" src="bundle.js"></script>
+	<script src="/tk/jquery/scripts/jquery.min.js"></script>
+	    
+	<script>
+	 wc.include()
+
+	 setTimeout(function(){
+	     let cnt = 0;
+	     $(".swiper-slide").each(function() {
+		 $(this).load("/mtk/render?ajax=1&callback=swiper::" + cnt++)
+	     });
+	     
+	     jQuery('html,body').animate({scrollTop:0},0);
+
+	     swipeme();
+	 }, 1000);
+	</script>
+    </body>
+</html>
+
+
+

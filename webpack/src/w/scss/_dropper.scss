@@ -1,0 +1,15 @@
+@import "variables";
+@import "mixins";
+
+///////////////////////////////////////////
+// wc-dropper
+///////////////////////////////////////////
+#wc {
+    wc-dropper {
+	font-size: $font-size-base;
+	visibility: hidden;
+	display: block;
+
+	border-radius: 0!important;
+    }
+}
