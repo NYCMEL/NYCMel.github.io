@@ -1,5 +1,6 @@
 #!/usr/bin/env tclkit
 
+set root   "w"
 set cmnd   [lindex $argv 0]
 set item   [lindex $argv 1]
 

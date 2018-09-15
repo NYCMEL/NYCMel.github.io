@@ -1,6 +1,6 @@
 #!/usr/bin/env tclkit
 
-cd /Melify/mtk/dev/tk/lib/components/$root/js
+cd ../js
 
 set presets "/usr/local/lib/node_modules/babel-preset-latest"
 
