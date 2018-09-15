@@ -13777,6 +13777,6 @@ body {
   #wc ::-ms-input-placeholder {
     color: #999 !important; }
   #wc .wc-loading-img:after {
-    content: url("/tk/lib/components/w/assets//loading.gif"); }
+    content: url("../assets/loading.gif"); }
   #wc .ctrl-outline {
     outline: 3px #FFB300 solid !important; }
