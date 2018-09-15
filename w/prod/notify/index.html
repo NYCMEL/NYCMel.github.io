@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Webpack App</title>
+
+	<script src="/tk/lib/components/misc/webpack/node_modules/document-register-element/build/document-register-element.js"></script>
+    </head>
+
+    <body id="wc">
+	<div class="alert alert-warning">
+	    <h1 align="center" style="margin:0;padding:0">W3C WEB COMPONENTS. <small>THEY JUST WORK !</small></h1>
+	</div>
+
+	<style>
+	 .noty_buttons {
+	     margin-left:25px;
+	 }
+	 .clicker {
+	     min-width: 130px;
+	 }
+	</style>
+
+	<a href="#" type="info" class="clicker btn btn-outline-info" onclick="wc.infoTest()">INFO</a>
+	<a href="#" type="warning" class="clicker btn btn-outline-warning" onclick="wc.warningTest()">WARNING</a>
+	<a href="#" type="warning" class="clicker btn btn-outline-success" onclick="wc.dialogTest()">DIALOG</a>
+	<a href="#" type="error" class="clicker btn btn-outline-danger" onclick="wc.errorTest()">ERROR</a>
+	<a href="#" type="working" class="clicker btn btn-outline-secondary" onclick="wc.workingTest()">WORKING</a>
+
+	<script type="text/javascript" src="wc.bundle.js"></script>
+    </body>
+</html>
+
