@@ -1,12 +1,7 @@
 #!/usr/bin/env tclkit
 
-set root   "w"
 set cmnd   [lindex $argv 0]
 set item   [lindex $argv 1]
-
-file mkdir /Melify/mtk/dev/tk/lib/components/$root
-file mkdir /Melify/mtk/dev/tk/lib/components/$root/css
-file mkdir /Melify/mtk/dev/tk/lib/components/$root/js
 
 ################################################################################
 ####
