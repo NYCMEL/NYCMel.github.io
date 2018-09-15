@@ -1,15 +1,218 @@
 <div id="wc">
-    <H1 class="amplitude-regular">HELLO MEL /pages</h1>
+    <div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12 mt-3 mb-3">
+		<nav class="navbar navbar-light bg-light" style="background:transparent!important;padding:0;margin:0">
+		    <div class="float-left">
+			<a class="navbar-brand" href="#"><img src="/tk/img/common/melify.gif" class="mt-3 mb-3"></a>
+		    </div>
+		    <div class="float-left d-none d-lg-block d-sm-none">
+			<a class="navbar-brand" href="#"><i class="fa fa-quote-left"></i> WEB COMPONENTS SPOKEN HERE <i class="fa fa-quote-right"></i></a>
+		    </div>
+		</nav>
+	    </div>
+	</div>
+    </div>
 
-    <wc-tile id="my-tile-1" style="width:400px;height:200px">
-	<wc-tile-title>
-	    Title here
-	</wc-tile-title>
-	
-	<wc-tile-description>
-	    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-	</wc-tile-description>
-    </wc-tile>
+    <div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-3">
+		<wc-listbox id="my-listbox-1" width="100%" class="shadow">
+		    <div class="card-header bg-warning text-white">
+			<h5>QUICK LINKS <small>- W3C COMPONENTS</small></h5>
+		    </div>
+		    <ul class="list-group" id="list-group-1">
+			<li id="item-1" class="list-group-item">PRODUCTION</li>
+			<li id="item-2" class="list-group-item">DEVELOPMENT</li>
+		    </ul>
+		</wc-listbox>
+
+		<wc-listbox id="my-listbox-2" width="100%" class="shadow">
+		    <div class="card-header bg-info text-white">
+			<h5>TOOLS</h5>
+		    </div>
+		    <ul class="list-group" id="list-group-2">
+			<li id="item-1" class="list-group-item">PACKER<small class="float-right">BUILD IT HERE. MOVE IT THERE</small></li>
+			<li id="item-2" class="list-group-item">DESIGNER<small class="float-right">EXPERIMENTAL WYSIWYG</small></li>
+		    </ul>
+		</wc-listbox>
+		
+		<wc-listbox id="my-listbox-3" width="100%" class="shadow">
+		    <div class="card-header bg-success text-white">
+			<h5>APPLICATIONS</h5>
+		    </div>
+		    <ul class="list-group" id="list-group-3">
+			<li id="item-1" class="list-group-item">MELIFY.COM <small class="float-right">SINGLE PAGE APP (SPA)</small></li>
+		    </ul>
+		</wc-listbox>
+
+		<div class="d-none d-lg-block d-sm-none text-center mt-4 amplitude-regular text-dark">
+		    <img src="/tk/img/common/mel.bw.png" height="70"> BEST VIEWED IN CHROME
+		</div>
+	    </div>
+	    
+	    <style>
+	     wc-flip, wc-tile {
+		 height: 260px!important;
+	     }
+	    </style>
+
+	    <div class="col-lg-9">
+		<div class="row">
+		    <div class="col-lg-4 mb-4">
+			<wc-flip id="my-flip-1">
+			    <wc-flip-front>
+				<wc-tile id="my-tile-1" class="shadow" clickable="true" style="height:100%">
+				    <wc-tile-title>
+					<span style="color:#1E88E5">Framework Independent</span>
+				    </wc-tile-title>
+				    
+				    <wc-tile-description>
+					<wc-icon id="my-icon-1" name="flag" size="36px" color="#1E88E5" class="d-block mb-2" border="false"></wc-icon>
+					Build Components once and use them in any web-based framework
+				    </wc-tile-description>
+				</wc-tile>
+			    </wc-flip-front>
+			    
+			    <wc-flip-back style="background:red;color:white" class="shadow">
+				<img src="/tk/img/common/mel.bw.png">
+			    </wc-flip-back>
+			</wc-flip>
+		    </div>
+
+		    <div class="col-lg-4 mb-4">
+			<wc-flip id="my-flip-2">
+			    <wc-flip-front>
+				<wc-tile id="my-tile-2" class="shadow" clickable="true" style="height:100%">
+				    <wc-tile-title style="color:#AFB42B">
+					REAL-TIME STATISTICS!
+				    </wc-tile-title>
+				    
+				    <wc-tile-description>
+					<wc-icon id="my-icon-2" name="bars" size="36px" color="#AFB42B" class="d-block mb-2" border="false"></wc-icon>
+					KNOW WHAT IS USED WHERE, WHEN AND HOW OFTEN. AND MAKE 'SMART DECISIONS'
+				    </wc-tile-description>
+				</wc-tile>
+			    </wc-flip-front>
+			    
+			    <wc-flip-back style="background:red;color:white" class="shadow">
+				<img src="/tk/img/common/mel.bw.png">
+			    </wc-flip-back>
+			</wc-flip>
+		    </div>
+		    
+		    <div class="col-lg-4 mb-4">
+			<wc-flip id="my-flip-3">
+			    <wc-flip-front>
+				<wc-tile id="my-tile-3" class="shadow" clickable="true" style="height:100%">
+				    <wc-tile-title style="color:#009688">
+					SINGLE SOURCE
+				    </wc-tile-title>
+				    
+				    <wc-tile-description>
+					<wc-icon id="my-icon-3" name="clone" size="36px" color="#009688" class="d-block mb-2" border="false"></wc-icon>
+					ONE PLACE TO ENHANCE, AND SOLVE POTENTIAL ISSUES AND MAKE THINGS MORE EFFICIENT
+				    </wc-tile-description>
+				</wc-tile>
+			    </wc-flip-front>
+			    
+			    <wc-flip-back style="background:red;color:white" class="shadow">
+				<img src="/tk/img/common/mel.bw.png">
+			    </wc-flip-back>
+			</wc-flip>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="col-lg-4 mb-4">
+			<wc-tile id="my-tile-4" class="shadow" style="height:100%">
+			    <wc-tile-title style="color:#FF6F00">
+				REDUCED CODE BASE SIZE
+			    </wc-tile-title>
+			    
+			    <wc-tile-description>
+				<wc-icon id="my-icon-4" name="database" size="36px" color="#FF6F00" class="d-block mb-2" border="false"></wc-icon>
+				TWO ORDER OF MAGNITUDE LESS CODE TO BE WRITTEN, RE-WRITTEN AND MANAGED
+			    </wc-tile-description>
+			</wc-tile>
+		    </div>
+
+		    <div class="col-lg-4 mb-4">
+			<wc-tile id="my-tile-5" class="shadow" style="height:100%">
+			    <wc-tile-title style="color:#A1887F">
+				INTELLIGENT COMPONENTS
+			    </wc-tile-title>
+			    
+			    <wc-tile-description>
+				<wc-icon id="my-icon-5" name="puzzle-piece" size="36px" color="#A1887F" class="d-block mb-2" border="false"></wc-icon>
+				HTML/CSS/JAVASCRIPTS AND BUSINESS LOGIC ALL ENCAPSULATED WITHIN EACH COMPONENT
+			    </wc-tile-description>
+			</wc-tile>
+		    </div>
+
+		    <div class="col-lg-4 mb-4">
+			<wc-tile id="my-tile-6" class="shadow" style="height:100%">
+			    <wc-tile-title style="color:#00BFA5">
+				REDUCED MANPOWER
+			    </wc-tile-title>
+			    
+			    <wc-tile-description>
+				<wc-icon id="my-icon-6" name="dollar" size="36px" color="#00BFA5" class="d-block mb-2" border="false"></wc-icon>
+				TWO ORDER OF MAGNITUDE LESS CODERS, AND FAR LESS KNOWLEDGE REQUIREMENTS
+			    </wc-tile-description>
+			</wc-tile>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="col-lg-4 mb-4">
+			<wc-tile id="my-tile-7" class="shadow" style="height:100%">
+			    <wc-tile-title style="color:#5E35B1">
+				FASTER TIME TO MARKET
+			    </wc-tile-title>
+			    
+			    <wc-tile-description>
+				<wc-icon id="my-icon-7" name="space-shuttle" size="36px" color="#5E35B1" class="d-block mb-2" border="false"></wc-icon>
+				TWO ORDER OF MANGITUDE FASTER TO PRODUCE APPLICATIONS
+			    </wc-tile-description>
+			</wc-tile>
+		    </div>
+
+		    <div class="col-lg-4 mb-4">
+			<wc-tile id="my-tile-8" class="shadow" style="height:100%">
+			    <wc-tile-title style="color:#689F38">
+				RE-USABLE & EXTENSIBLE
+			    </wc-tile-title>
+			    
+			    <wc-tile-description>
+				<wc-icon id="my-icon-8" name="recycle" size="36px" color="#689F38" class="d-block mb-2" border="false"></wc-icon>
+				Components are write once, use anywhere. Any change is reflected in current and future updates
+			    </wc-tile-description>
+			</wc-tile>
+		    </div>
+
+		    <div class="col-lg-4 mb-4">
+			<wc-tile id="my-tile-9" class="shadow" style="height:100%">
+			    <wc-tile-title style="color:#ef5350">
+				CLOUDABLE
+			    </wc-tile-title>
+			    
+			    <wc-tile-description>
+				<wc-icon id="my-icon-9" name="mixcloud" size="36px" color="#ef5350" class="d-block mb-2" border="false"></wc-icon>
+				There is no need to maintain the component code on your end. They are available in Cloud Servers
+			    </wc-tile-description>
+			</wc-tile>
+		    </div>
+		</div>
+	    </div>
+	</div>
+    </div>
+
+    <div class="container-fluid">
+	<div class="mt-4 mb-4 text-dark">
+	    <a href="mailto:info@melify.com" class="text-dark pr-3">Melify.com@2018</a> +1.646.303.1234
+	</div>
+    </div>
 
     <script src="http://melify.com/tk/lib/components/w/npm/node_modules/document-register-element/build/document-register-element.js"></script>
     <script src="http://melify.com/tk/lib/components/misc/webpack/prod/melify//wc.bundle.js"></script>
