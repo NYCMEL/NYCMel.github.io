@@ -1,30 +1,30 @@
 {
-    "header": "/tk/lib/components/misc/webpack/src/w/html/parts/app/header.html",
-    "footer": "/tk/lib/components/misc/webpack/src/w/html/parts/app/footer.html",
+    "header": "../html/parts/app/header.html",
+    "footer": "../html/parts/app/footer.html",
     "pages": [
 	{
 	    "id": "home",
 	    "label": "Home",
-	    "url": "/tk/lib/components/misc/webpack/src/w/html/parts/app/home.html",
+	    "url": "../html/parts/app/home.html",
 	    "cache": true,
 	    "active": true
 	},
 	{
 	    "id": "products",
 	    "label": "Products",
-	    "url": "/tk/lib/components/misc/webpack/src/w/html/parts/app/products.html",
+	    "url": "../html/parts/app/products.html",
 	    "cache": true
 	},
 	{
 	    "id": "downloads",
 	    "label": "Downloads",
-	    "url": "/tk/lib/components/misc/webpack/src/w/html/parts/app/downloads.html",
+	    "url": "../html/parts/app/downloads.html",
 	    "cache": true
 	},
 	{
 	    "id": "about",
 	    "label": "About Us",
-	    "url": "/tk/lib/components/misc/webpack/src/w/html/parts/app/about.html",
+	    "url": "../html/parts/app/about.html",
 	    "cache": false
 	}
     ]
