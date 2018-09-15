@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: maker.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+<link href='../css/global.css' type='text/css' rel='stylesheet'/></head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: maker.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Maker Component&lt;BR>
+ * &lt;BR>&lt;BR>&lt;img src=../img/maker.png width=30% style="border:1px lime dashed;padding:20px">
+ * &lt;BR>&lt;BR>&lt;a href="../html/maker.html">DEMO&lt;/a>
+ */
+class Maker extends HTMLElement {
+    constructor() {
+        console.group("Maker.constructor")
+	
+        super();
+
+        console.groupEnd();
+    };
+    
+    /**
+     * Set observable values here. When Changed, attributeChangedCallback is invoked
+     * @observedAttributes
+     */
+    static get observedAttributes() {
+        console.group("Maker.observedAttributes");
+
+	this.observables = ["header"];
+
+        console.groupEnd();
+        return this.observables;
+    };
+
+    /**
+     * This function is called when this is attached to DOM
+     * @connectedCallback. 
+     */
+    connectedCallback() {
+        console.group("Maker.connectedCallback")
+	
+	let self = this;
+
+	// GET PROPERTIES AND INTERESTING ELEMENTS
+	this._initialize();
+
+	// REPLACE CONTENT IF NECESSARY WITH NEW STUFF
+	this.innerHTML = `&lt;div class="wc-header">${this.properties.header}&lt;/div>` + this.dom.content;
+	
+	// TRANSFER ALL ATTRIBUTES NOW (below is an example)
+	// -------------------------------------------------
+	// let child = this.querySelector(".wc-header");
+	//
+ 	// for (var key in this.propertiesW) {
+	//     this.removeAttribute(key);
+	//
+	//     if (key != "class") {
+	// 	child.setAttribute(key, this.properties[key]);
+	//     }
+	// }	
+
+	// PUBLISH INTERESTING EVENTS
+	this._publish();
+	
+	// ADD STATS AND OTHER FINAL STUFF
+	this._finalize();
+
+        console.groupEnd();
+    };
+
+    /**
+     * Publish all events
+     * @_publish
+     */
+    _publish() {
+	console.group("Maker.publish");
+
+	this.addEventListener("click", e => {
+	    wc.publish(this, "wc-maker", {
+		time: new Date().getTime(),
+		action: "click",
+		id: this.id,
+		uparam: this.properties.uparam
+	    });
+	});
+	
+	console.groupEnd();
+    }
+
+    /**
+     * Called with .setAttribute(...) function call
+     * @attributeChangedCallback
+     */
+    attributeChangedCallback(attr, oldval, newval) {
+        console.group("Maker.attributeChangedCallback:", attr, oldval, newval);
+
+	this.properties = this.properties || [];
+
+	let obs = Maker.observedAttributes;
+
+	for (let i = 0; i &lt; obs.length; i++) {
+	    if (newval) {
+		this.properties[obs[i]] = newval;
+	    }
+	}
+	
+	// YOUR CODE FOR CHANGES GO HERE (MAYBE NULL FIRST TIME THROUGH)
+	try {
+	    switch(attr) 
+	    {
+		case "header":
+		let h = this.querySelector(".wc-header")
+		h.innerHTML = newval;
+		break;
+		
+		default:
+		break;
+	    }
+	} catch(e) {
+	    console.warn(e.name + ' > ' + e.message);
+	}
+
+        console.groupEnd();
+    };
+
+    /**
+     * Stores DOM elements of interest for future use
+     * @_fetchElements
+     */
+    _fetchElements() {
+	console.group("Maker._fetchElements");
+	
+	this.dom = this.dom || [];
+	this.dom.content = this.innerHTML;
+
+	console.groupEnd();
+    };
+
+    /**
+     * Component attributes are _fetched and defaults are set if undefined
+     * @_fetchAttributes
+     * @param {string} [modal=true] mode for our maker
+     */
+    _fetchAttributes() {
+	console.group("Maker._fetchAttributes");
+	
+	this.properties = {
+	    cname      : "Maker",
+	    author     : "Mel Heravi",
+	    version    : "1.0",
+	    header     : "UNDEFINED HEADER"
+	};
+	
+	// SAVE WIDGET SPECIFIC PROPERTIES
+	this.propertiesW = [];
+	
+	// SAVE ALL OTHER PROPERTIES
+	let attrs = wc.getAttributes(this)
+	
+ 	for (var key in attrs) {
+	    let attr = this.getAttribute(key) || this.properties.key;
+	    this.properties[key]  = this.getAttribute(key);
+	    this.propertiesW[key] = this.getAttribute(key);
+	    console.log(key + ": " + attrs[key]);
+	}
+
+	// SET ALL INITIAL ATTRIBUTES
+ 	for (var key in this.properties) {
+	    switch(key) 
+	    {
+		case "header":
+		let h = document.querySelector("wc-header")
+		break;
+		
+		default:
+		break;
+	    }
+	}
+
+	console.log("ATTRIBUTES: ", this.properties);
+
+	console.groupEnd();
+    };
+
+    /**
+     * Destroy the instance object and artifacts
+     * @destroy
+     */
+    destroy() {
+	console.group("Maker.destroy:", this.id);
+
+	// FREE ALL MEMORY
+	// you should delete all created objects here
+
+	// FREE POINTER
+	delete this;
+
+	// REMOVE ITEM FROM DOM
+	this.parentNode.removeChild(this);
+
+	console.groupEnd();
+    };
+
+    /**
+     * configure the instance object and artifacts
+     * @configure
+     */
+    configure(options) {
+	console.group("Maker.configure:", JSON.stringify(options));
+
+	// PROCESS ALL OPTIONS HERE
+
+	console.groupEnd();
+    };
+
+    /**
+     * SAVE DATA FOR ANALYTICS
+     * @_initialize
+     */
+    _initialize() {
+	console.group("Maker._initialize:", this.id);
+
+	// FETCH ALL INTERESTING ELEMENTS
+	this._fetchElements();
+
+	// FETCH ALL ATTRIBUTES
+	this._fetchAttributes();
+	
+	console.groupEnd();
+    };
+
+    /**
+     * SAVE DATA FOR ANALYTICS
+     * @_finalize
+     */
+    _finalize() {
+	console.group("Maker._finalize:", this.id);
+
+	this.classList.add("wc");
+
+	// ADD ANALYTICS HERE
+	wc.setStats(this, this.properties.cname, this.properties.version);
+	
+	// SHOW IT NOW (NO FLICKERS) 
+	this.style.visibility = "visible";
+
+	console.groupEnd();
+    };
+
+    /**
+     * Invoked When component is removed. Usually with a .remove() function call
+     * @disconnectedCallback
+     */
+    disconnectedCallback() {
+        console.group("Maker.disconnectedCallback")
+
+	/* CLEAN UP NOW */
+
+        console.groupEnd();
+    };
+}
+
+window.customElements.define('wc-maker', Maker);
+
+
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Accordion.html">Accordion</a></li><li><a href="App.html">App</a></li><li><a href="Band.html">Band</a></li><li><a href="Breadcrumb.html">Breadcrumb</a></li><li><a href="Calendar.html">Calendar</a></li><li><a href="Card.html">Card</a></li><li><a href="Carousel.html">Carousel</a></li><li><a href="CarouselBS.html">CarouselBS</a></li><li><a href="Center.html">Center</a></li><li><a href="Chart.html">Chart</a></li><li><a href="Check.html">Check</a></li><li><a href="Dad.html">Dad</a></li><li><a href="Dropdown.html">Dropdown</a></li><li><a href="Dropper.html">Dropper</a></li><li><a href="Flip.html">Flip</a></li><li><a href="Form.html">Form</a></li><li><a href="Groupbox.html">Groupbox</a></li><li><a href="Icon.html">Icon</a></li><li><a href="Include.html">Include</a></li><li><a href="Listbox.html">Listbox</a></li><li><a href="Maker.html">Maker</a></li><li><a href="Matrix.html">Matrix</a></li><li><a href="Melify.html">Melify</a></li><li><a href="Modal.html">Modal</a></li><li><a href="Orgchart.html">Orgchart</a></li><li><a href="Page.html">Page</a></li><li><a href="Popup.html">Popup</a></li><li><a href="Radio.html">Radio</a></li><li><a href="Ranger.html">Ranger</a></li><li><a href="Select.html">Select</a></li><li><a href="Slide.html">Slide</a></li><li><a href="Stocks.html">Stocks</a></li><li><a href="Swipe.html">Swipe</a></li><li><a href="Table.html">Table</a></li><li><a href="TablePlain.html">TablePlain</a></li><li><a href="Text.html">Text</a></li><li><a href="Textarea.html">Textarea</a></li><li><a href="Ticker.html">Ticker</a></li><li><a href="Tile.html">Tile</a></li><li><a href="Toolbar.html">Toolbar</a></li><li><a href="Typeahead.html">Typeahead</a></li></ul>
+</nav>
+
+<br class="clear">
+
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
+
