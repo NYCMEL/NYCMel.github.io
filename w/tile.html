@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<!-- DEVELOPMENT SCRIPT -->
-	<link href="../dist/wc.css" rel="stylesheet" />
+	<link href="./dist/wc.css" rel="stylesheet" />
     </head>
 
     <body id="wc" style="margin-left:25px;margin-right:25px">
@@ -24,13 +24,13 @@
 
 	<!-- DEVELOPMENT CODE (START) -->
 	<script>wcENV="dev";wcApp="w";</script>
-	<script src="../dist/wc.js"></script> 
+	<script src="./dist/wc.js"></script> 
 	
 	<script>
 	 yepnope({
 	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
-	     yep  : ['../es5/include.js', '../es5/tile.js', '../es5/center.js'],
-	     nope : [ '../js/include.js',  '../js/tile.js',  '../js/center.js']
+	     yep  : ['./es5/include.js', './es5/tile.js', './es5/center.js'],
+	     nope : [ './js/include.js',  './js/tile.js',  './js/center.js']
 	 });
 	</script>
 	<!-- DEVELOPMENT CODE (END) -->
