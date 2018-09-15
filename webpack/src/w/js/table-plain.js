@@ -1,7 +1,7 @@
 /**
  * Table-plain Component<BR>
  * <BR><BR><img src=/tk/lib/components/w/img/table-plain.png width=70% style="border:1px lime dashed;padding:20px">
- * <BR><BR><a href="/tk/lib/components/w/html/table-plain.html">DEMO</a>
+ * <BR><BR><a href="../html/table-plain.html">DEMO</a>
  */
 class TablePlain extends HTMLElement {
     constructor() {
