@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-09-15 10:12:22 (melify)>
+//// Time-stamp: <2018-09-15 10:13:51 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var mtkBtns = {};
 
@@ -16,19 +16,19 @@ mtkBtns.init = function(options) {
 	switch(id) 
 	{
 	    case "mtk-btn-1":
-	    document.location.href = "./doc"
+	    document.location.href = "../doc"
 	    break;
 
 	    case "mtk-btn-2":
-	    document.location.href = "./html/" + name + ".html";
+	    document.location.href = "../html/" + name + ".html";
 	    break;
 
 	    case "mtk-btn-3":
-	    document.location.href = "./js/" + name + ".js";
+	    document.location.href = "../js/" + name + ".js";
 	    break;
 
 	    case "mtk-btn-4":
-	    document.location.href = "./scss/_" + name + ".scss";
+	    document.location.href = "../scss/_" + name + ".scss";
 	    break;
 	}
     });
