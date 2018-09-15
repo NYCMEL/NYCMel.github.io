@@ -13678,7 +13678,7 @@ body {
   display: block;
   visibility: hidden; }
   #wc wc-stocks table {
-    font-family: Amplitude-Light; }
+    font-family: Amplitude Light; }
     #wc wc-stocks table th, #wc wc-stocks table td {
       padding: 5px !important;
       margin: 0px !important;
@@ -13777,6 +13777,6 @@ body {
   #wc ::-ms-input-placeholder {
     color: #999 !important; }
   #wc .wc-loading-img:after {
-    content: url("/tk/lib/components/w/assets//loading.gif"); }
+    content: url("../assets/loading.gif"); }
   #wc .ctrl-outline {
     outline: 3px #FFB300 solid !important; }

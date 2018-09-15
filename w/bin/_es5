@@ -29,8 +29,9 @@ if {$item != ""} {
 
 puts "\n\tcombine es5 files now into $root.es5...\n"
 
-cd /Melify/mtk/dev/tk/lib/components/$root/es5
+cd ../es5
 eval exec cat [lsort [glob ../es5/*.js]] > ../dist/wc.es5.js
 
 #RETURN 
-cd /Melify/mtk/dev/tk/lib/components/$root/bin
+cd ../bin
+
