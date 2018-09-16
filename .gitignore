@@ -1,1 +1,4 @@
 node_modules
+.sync-nycmel
+package-lock.json
+
