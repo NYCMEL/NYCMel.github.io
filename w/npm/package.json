@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/NYCMEL/w#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^4.1.0",
     "bootstrap-validator": "git+https://github.com/1000hz/bootstrap-validator.git",
     "datatables": "git+https://github.com/DataTables/DataTables.git",
@@ -36,8 +34,8 @@
     "jquery-form": "git+https://github.com/jquery-form/form.git",
     "moment": "^2.22.2",
     "muuri": "^0.5.4",
-    "noty": "^3.2.0-beta",
     "pace": "0.0.4",
+    "noty": "^3.2.0-beta",
     "popper": "^1.0.1",
     "popper.js": "^1.14.1",
     "select2-bootstrap-theme": "0.1.0-beta.10",

@@ -23,7 +23,6 @@ if {$argc == 0} {
 # SET PATHS
 set react   "/Melify/mtk/dev/tk/lib/components/misc/react"
 set angular "/Melify/mtk/dev/tk/lib/components/misc/angular"
-
 set webpack "/Melify/mtk/dev/tk/lib/components/misc/webpack"
 set comps   "$argv"
 

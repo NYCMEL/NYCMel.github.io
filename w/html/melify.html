@@ -7,6 +7,12 @@
 	
 	<!-- DEVELOPMENT SCRIPT -->
 	<link href="../dist/wc.css" rel="stylesheet" />
+
+	<script>
+	 wcENV="dev";
+	 wcApp="w";
+	 wcRoot="/tk/lib/components/misc/webpack/src/w";
+	</script>
     </head>
 
     <body id="wc" style="margin-left:25px;margin-right:25px">
@@ -15,14 +21,13 @@
 	<!-- SAMPLE -->
 
 	<!-- DEVELOPMENT CODE (START) -->
-	<script>wcENV="dev";wcApp="w";</script>
 	<script src="../dist/wc.js"></script> 
 	
 	<script>
 	 yepnope({
 	     test : /(msie) ([\w.]+)/.test(navigator.userAgent),// INTERNET EXPLORER
-	     yep  : ['../es5/include.js', '../es5/tile.js', '../es5/center.js', '../es5/listbox.js', '../es5/melify.js', '../es5/icon.js', '../es5/stocks.js'],
-	     nope : [ '../js/include.js',  '../js/tile.js',  '../js/center.js',  '../js/listbox.js',  '../js/melify.js',  '../js/icon.js',  '../js/stocks.js']
+	     yep  : ['../es5/include.js', '../es5/tile.js', '../es5/center.js', '../es5/listbox.js', '../es5/melify.js', '../es5/icon.js', '../es5/flip.js'],
+	     nope : [ '../js/include.js',  '../js/tile.js',  '../js/center.js',  '../js/listbox.js',  '../js/melify.js',  '../js/icon.js',  '../js/flip.js']
 	 });
 	</script>
 	<!-- DEVELOPMENT CODE (END) -->

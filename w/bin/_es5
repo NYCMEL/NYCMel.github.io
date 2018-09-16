@@ -1,8 +1,6 @@
 #!/usr/bin/env tclkit
 
-cd ../js
-
-file delete -force ../es5/*
+cd /Melify/mtk/dev/tk/lib/components/$root/js
 
 set presets "/usr/local/lib/node_modules/babel-preset-latest"
 
@@ -29,9 +27,8 @@ if {$item != ""} {
 
 puts "\n\tcombine es5 files now into $root.es5...\n"
 
-cd ../es5
+cd /Melify/mtk/dev/tk/lib/components/$root/es5
 eval exec cat [lsort [glob ../es5/*.js]] > ../dist/wc.es5.js
 
 #RETURN 
-cd ../bin
-
+cd /Melify/mtk/dev/tk/lib/components/$root/bin

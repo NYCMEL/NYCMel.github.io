@@ -1,5 +1,7 @@
 exec _jdoc
 
+cd /Melify/mtk/dev/tk/lib/components/w/bin
+
 file delete -force ../doc/*
 
 set styles {

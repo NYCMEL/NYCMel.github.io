@@ -611,8 +611,6 @@ PERFORMANCE OF THIS SOFTWARE.
     MutationObserver = window.MutationObserver ||
                        window.WebKitMutationObserver,
   
-    HTMLAnchorElement = window.HTMLAnchorElement,
-  
     HTMLElementPrototype = (
       window.HTMLElement ||
       window.Element ||
@@ -12283,7 +12281,7 @@ return jQuery;
 
 }(jQuery);
 /*!
-  * Bootstrap v4.1.3 (https://getbootstrap.com/)
+  * Bootstrap v4.1.1 (https://getbootstrap.com/)
   * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -12353,7 +12351,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): util.js
+   * Bootstrap (v4.1.1): util.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12430,7 +12428,8 @@ return jQuery;
         }
 
         try {
-          return document.querySelector(selector) ? selector : null;
+          var $selector = $$$1(document).find(selector);
+          return $selector.length > 0 ? selector : null;
         } catch (err) {
           return null;
         }
@@ -12485,7 +12484,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): alert.js
+   * Bootstrap (v4.1.1): alert.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12497,7 +12496,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'alert';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.alert';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -12560,7 +12559,7 @@ return jQuery;
         var parent = false;
 
         if (selector) {
-          parent = document.querySelector(selector);
+          parent = $$$1(selector)[0];
         }
 
         if (!parent) {
@@ -12660,7 +12659,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): button.js
+   * Bootstrap (v4.1.1): button.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12672,7 +12671,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'button';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.button';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -12717,14 +12716,14 @@ return jQuery;
         var rootElement = $$$1(this._element).closest(Selector.DATA_TOGGLE)[0];
 
         if (rootElement) {
-          var input = this._element.querySelector(Selector.INPUT);
+          var input = $$$1(this._element).find(Selector.INPUT)[0];
 
           if (input) {
             if (input.type === 'radio') {
-              if (input.checked && this._element.classList.contains(ClassName.ACTIVE)) {
+              if (input.checked && $$$1(this._element).hasClass(ClassName.ACTIVE)) {
                 triggerChangeEvent = false;
               } else {
-                var activeElement = rootElement.querySelector(Selector.ACTIVE);
+                var activeElement = $$$1(rootElement).find(Selector.ACTIVE)[0];
 
                 if (activeElement) {
                   $$$1(activeElement).removeClass(ClassName.ACTIVE);
@@ -12737,7 +12736,7 @@ return jQuery;
                 return;
               }
 
-              input.checked = !this._element.classList.contains(ClassName.ACTIVE);
+              input.checked = !$$$1(this._element).hasClass(ClassName.ACTIVE);
               $$$1(input).trigger('change');
             }
 
@@ -12747,7 +12746,7 @@ return jQuery;
         }
 
         if (addAriaPressed) {
-          this._element.setAttribute('aria-pressed', !this._element.classList.contains(ClassName.ACTIVE));
+          this._element.setAttribute('aria-pressed', !$$$1(this._element).hasClass(ClassName.ACTIVE));
         }
 
         if (triggerChangeEvent) {
@@ -12824,7 +12823,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): carousel.js
+   * Bootstrap (v4.1.1): carousel.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -12836,7 +12835,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'carousel';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.carousel';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -12915,7 +12914,7 @@ return jQuery;
         this.touchTimeout = null;
         this._config = this._getConfig(config);
         this._element = $$$1(element)[0];
-        this._indicatorsElement = this._element.querySelector(Selector.INDICATORS);
+        this._indicatorsElement = $$$1(this._element).find(Selector.INDICATORS)[0];
 
         this._addEventListeners();
       } // Getters
@@ -12949,7 +12948,7 @@ return jQuery;
           this._isPaused = true;
         }
 
-        if (this._element.querySelector(Selector.NEXT_PREV)) {
+        if ($$$1(this._element).find(Selector.NEXT_PREV)[0]) {
           Util.triggerTransitionEnd(this._element);
           this.cycle(true);
         }
@@ -12976,7 +12975,7 @@ return jQuery;
       _proto.to = function to(index) {
         var _this = this;
 
-        this._activeElement = this._element.querySelector(Selector.ACTIVE_ITEM);
+        this._activeElement = $$$1(this._element).find(Selector.ACTIVE_ITEM)[0];
 
         var activeIndex = this._getItemIndex(this._activeElement);
 
@@ -13082,7 +13081,7 @@ return jQuery;
       };
 
       _proto._getItemIndex = function _getItemIndex(element) {
-        this._items = element && element.parentNode ? [].slice.call(element.parentNode.querySelectorAll(Selector.ITEM)) : [];
+        this._items = $$$1.makeArray($$$1(element).parent().find(Selector.ITEM));
         return this._items.indexOf(element);
       };
 
@@ -13107,7 +13106,7 @@ return jQuery;
       _proto._triggerSlideEvent = function _triggerSlideEvent(relatedTarget, eventDirectionName) {
         var targetIndex = this._getItemIndex(relatedTarget);
 
-        var fromIndex = this._getItemIndex(this._element.querySelector(Selector.ACTIVE_ITEM));
+        var fromIndex = this._getItemIndex($$$1(this._element).find(Selector.ACTIVE_ITEM)[0]);
 
         var slideEvent = $$$1.Event(Event.SLIDE, {
           relatedTarget: relatedTarget,
@@ -13121,8 +13120,7 @@ return jQuery;
 
       _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
         if (this._indicatorsElement) {
-          var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.ACTIVE));
-          $$$1(indicators).removeClass(ClassName.ACTIVE);
+          $$$1(this._indicatorsElement).find(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
 
           var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
@@ -13135,7 +13133,7 @@ return jQuery;
       _proto._slide = function _slide(direction, element) {
         var _this3 = this;
 
-        var activeElement = this._element.querySelector(Selector.ACTIVE_ITEM);
+        var activeElement = $$$1(this._element).find(Selector.ACTIVE_ITEM)[0];
 
         var activeElementIndex = this._getItemIndex(activeElement);
 
@@ -13301,13 +13299,11 @@ return jQuery;
 
     $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler);
     $$$1(window).on(Event.LOAD_DATA_API, function () {
-      var carousels = [].slice.call(document.querySelectorAll(Selector.DATA_RIDE));
-
-      for (var i = 0, len = carousels.length; i < len; i++) {
-        var $carousel = $$$1(carousels[i]);
+      $$$1(Selector.DATA_RIDE).each(function () {
+        var $carousel = $$$1(this);
 
         Carousel._jQueryInterface.call($carousel, $carousel.data());
-      }
+      });
     });
     /**
      * ------------------------------------------------------------------------
@@ -13328,7 +13324,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): collapse.js
+   * Bootstrap (v4.1.1): collapse.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -13340,7 +13336,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'collapse';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.collapse';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -13388,17 +13384,14 @@ return jQuery;
         this._isTransitioning = false;
         this._element = element;
         this._config = this._getConfig(config);
-        this._triggerArray = $$$1.makeArray(document.querySelectorAll("[data-toggle=\"collapse\"][href=\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
-        var toggleList = [].slice.call(document.querySelectorAll(Selector.DATA_TOGGLE));
+        this._triggerArray = $$$1.makeArray($$$1("[data-toggle=\"collapse\"][href=\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
+        var tabToggles = $$$1(Selector.DATA_TOGGLE);
 
-        for (var i = 0, len = toggleList.length; i < len; i++) {
-          var elem = toggleList[i];
+        for (var i = 0; i < tabToggles.length; i++) {
+          var elem = tabToggles[i];
           var selector = Util.getSelectorFromElement(elem);
-          var filterElement = [].slice.call(document.querySelectorAll(selector)).filter(function (foundElem) {
-            return foundElem === element;
-          });
 
-          if (selector !== null && filterElement.length > 0) {
+          if (selector !== null && $$$1(selector).filter(element).length > 0) {
             this._selector = selector;
 
             this._triggerArray.push(elem);
@@ -13439,9 +13432,7 @@ return jQuery;
         var activesData;
 
         if (this._parent) {
-          actives = [].slice.call(this._parent.querySelectorAll(Selector.ACTIVES)).filter(function (elem) {
-            return elem.getAttribute('data-parent') === _this._config.parent;
-          });
+          actives = $$$1.makeArray($$$1(this._parent).find(Selector.ACTIVES).filter("[data-parent=\"" + this._config.parent + "\"]"));
 
           if (actives.length === 0) {
             actives = null;
@@ -13476,7 +13467,7 @@ return jQuery;
         $$$1(this._element).removeClass(ClassName.COLLAPSE).addClass(ClassName.COLLAPSING);
         this._element.style[dimension] = 0;
 
-        if (this._triggerArray.length) {
+        if (this._triggerArray.length > 0) {
           $$$1(this._triggerArray).removeClass(ClassName.COLLAPSED).attr('aria-expanded', true);
         }
 
@@ -13517,15 +13508,14 @@ return jQuery;
         this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
         Util.reflow(this._element);
         $$$1(this._element).addClass(ClassName.COLLAPSING).removeClass(ClassName.COLLAPSE).removeClass(ClassName.SHOW);
-        var triggerArrayLength = this._triggerArray.length;
 
-        if (triggerArrayLength > 0) {
-          for (var i = 0; i < triggerArrayLength; i++) {
+        if (this._triggerArray.length > 0) {
+          for (var i = 0; i < this._triggerArray.length; i++) {
             var trigger = this._triggerArray[i];
             var selector = Util.getSelectorFromElement(trigger);
 
             if (selector !== null) {
-              var $elem = $$$1([].slice.call(document.querySelectorAll(selector)));
+              var $elem = $$$1(selector);
 
               if (!$elem.hasClass(ClassName.SHOW)) {
                 $$$1(trigger).addClass(ClassName.COLLAPSED).attr('aria-expanded', false);
@@ -13586,12 +13576,11 @@ return jQuery;
             parent = this._config.parent[0];
           }
         } else {
-          parent = document.querySelector(this._config.parent);
+          parent = $$$1(this._config.parent)[0];
         }
 
         var selector = "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]";
-        var children = [].slice.call(parent.querySelectorAll(selector));
-        $$$1(children).each(function (i, element) {
+        $$$1(parent).find(selector).each(function (i, element) {
           _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
         });
         return parent;
@@ -13601,7 +13590,7 @@ return jQuery;
         if (element) {
           var isOpen = $$$1(element).hasClass(ClassName.SHOW);
 
-          if (triggerArray.length) {
+          if (triggerArray.length > 0) {
             $$$1(triggerArray).toggleClass(ClassName.COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
           }
         }
@@ -13610,7 +13599,7 @@ return jQuery;
 
       Collapse._getTargetFromElement = function _getTargetFromElement(element) {
         var selector = Util.getSelectorFromElement(element);
-        return selector ? document.querySelector(selector) : null;
+        return selector ? $$$1(selector)[0] : null;
       };
 
       Collapse._jQueryInterface = function _jQueryInterface(config) {
@@ -13668,8 +13657,7 @@ return jQuery;
 
       var $trigger = $$$1(this);
       var selector = Util.getSelectorFromElement(this);
-      var selectors = [].slice.call(document.querySelectorAll(selector));
-      $$$1(selectors).each(function () {
+      $$$1(selector).each(function () {
         var $target = $$$1(this);
         var data = $target.data(DATA_KEY);
         var config = data ? 'toggle' : $trigger.data();
@@ -16214,7 +16202,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): dropdown.js
+   * Bootstrap (v4.1.1): dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -16226,7 +16214,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'dropdown';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.dropdown';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -16435,16 +16423,14 @@ return jQuery;
         if (!this._menu) {
           var parent = Dropdown._getParentFromElement(this._element);
 
-          if (parent) {
-            this._menu = parent.querySelector(Selector.MENU);
-          }
+          this._menu = $$$1(parent).find(Selector.MENU)[0];
         }
 
         return this._menu;
       };
 
       _proto._getPlacement = function _getPlacement() {
-        var $parentDropdown = $$$1(this._element.parentNode);
+        var $parentDropdown = $$$1(this._element).parent();
         var placement = AttachmentMap.BOTTOM; // Handle dropup
 
         if ($parentDropdown.hasClass(ClassName.DROPUP)) {
@@ -16532,19 +16518,15 @@ return jQuery;
           return;
         }
 
-        var toggles = [].slice.call(document.querySelectorAll(Selector.DATA_TOGGLE));
+        var toggles = $$$1.makeArray($$$1(Selector.DATA_TOGGLE));
 
-        for (var i = 0, len = toggles.length; i < len; i++) {
+        for (var i = 0; i < toggles.length; i++) {
           var parent = Dropdown._getParentFromElement(toggles[i]);
 
           var context = $$$1(toggles[i]).data(DATA_KEY);
           var relatedTarget = {
             relatedTarget: toggles[i]
           };
-
-          if (event && event.type === 'click') {
-            relatedTarget.clickEvent = event;
-          }
 
           if (!context) {
             continue;
@@ -16584,7 +16566,7 @@ return jQuery;
         var selector = Util.getSelectorFromElement(element);
 
         if (selector) {
-          parent = document.querySelector(selector);
+          parent = $$$1(selector)[0];
         }
 
         return parent || element.parentNode;
@@ -16616,7 +16598,7 @@ return jQuery;
 
         if (!isActive && (event.which !== ESCAPE_KEYCODE || event.which !== SPACE_KEYCODE) || isActive && (event.which === ESCAPE_KEYCODE || event.which === SPACE_KEYCODE)) {
           if (event.which === ESCAPE_KEYCODE) {
-            var toggle = parent.querySelector(Selector.DATA_TOGGLE);
+            var toggle = $$$1(parent).find(Selector.DATA_TOGGLE)[0];
             $$$1(toggle).trigger('focus');
           }
 
@@ -16624,7 +16606,7 @@ return jQuery;
           return;
         }
 
-        var items = [].slice.call(parent.querySelectorAll(Selector.VISIBLE_ITEMS));
+        var items = $$$1(parent).find(Selector.VISIBLE_ITEMS).get();
 
         if (items.length === 0) {
           return;
@@ -16702,7 +16684,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): modal.js
+   * Bootstrap (v4.1.1): modal.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -16714,7 +16696,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'modal';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.modal';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -16758,7 +16740,8 @@ return jQuery;
       DATA_TOGGLE: '[data-toggle="modal"]',
       DATA_DISMISS: '[data-dismiss="modal"]',
       FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
-      STICKY_CONTENT: '.sticky-top'
+      STICKY_CONTENT: '.sticky-top',
+      NAVBAR_TOGGLER: '.navbar-toggler'
       /**
        * ------------------------------------------------------------------------
        * Class Definition
@@ -16773,7 +16756,7 @@ return jQuery;
       function Modal(element, config) {
         this._config = this._getConfig(config);
         this._element = element;
-        this._dialog = element.querySelector(Selector.DIALOG);
+        this._dialog = $$$1(element).find(Selector.DIALOG)[0];
         this._backdrop = null;
         this._isShown = false;
         this._isBodyOverflowing = false;
@@ -17030,7 +17013,7 @@ return jQuery;
           this._backdrop.className = ClassName.BACKDROP;
 
           if (animate) {
-            this._backdrop.classList.add(animate);
+            $$$1(this._backdrop).addClass(animate);
           }
 
           $$$1(this._backdrop).appendTo(document.body);
@@ -17124,19 +17107,23 @@ return jQuery;
         if (this._isBodyOverflowing) {
           // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
           //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
-          var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
-          var stickyContent = [].slice.call(document.querySelectorAll(Selector.STICKY_CONTENT)); // Adjust fixed content padding
-
-          $$$1(fixedContent).each(function (index, element) {
-            var actualPadding = element.style.paddingRight;
+          // Adjust fixed content padding
+          $$$1(Selector.FIXED_CONTENT).each(function (index, element) {
+            var actualPadding = $$$1(element)[0].style.paddingRight;
             var calculatedPadding = $$$1(element).css('padding-right');
             $$$1(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this9._scrollbarWidth + "px");
           }); // Adjust sticky content margin
 
-          $$$1(stickyContent).each(function (index, element) {
-            var actualMargin = element.style.marginRight;
+          $$$1(Selector.STICKY_CONTENT).each(function (index, element) {
+            var actualMargin = $$$1(element)[0].style.marginRight;
             var calculatedMargin = $$$1(element).css('margin-right');
             $$$1(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this9._scrollbarWidth + "px");
+          }); // Adjust navbar-toggler margin
+
+          $$$1(Selector.NAVBAR_TOGGLER).each(function (index, element) {
+            var actualMargin = $$$1(element)[0].style.marginRight;
+            var calculatedMargin = $$$1(element).css('margin-right');
+            $$$1(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) + _this9._scrollbarWidth + "px");
           }); // Adjust body padding
 
           var actualPadding = document.body.style.paddingRight;
@@ -17147,15 +17134,15 @@ return jQuery;
 
       _proto._resetScrollbar = function _resetScrollbar() {
         // Restore fixed content padding
-        var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
-        $$$1(fixedContent).each(function (index, element) {
+        $$$1(Selector.FIXED_CONTENT).each(function (index, element) {
           var padding = $$$1(element).data('padding-right');
-          $$$1(element).removeData('padding-right');
-          element.style.paddingRight = padding ? padding : '';
-        }); // Restore sticky content
 
-        var elements = [].slice.call(document.querySelectorAll("" + Selector.STICKY_CONTENT));
-        $$$1(elements).each(function (index, element) {
+          if (typeof padding !== 'undefined') {
+            $$$1(element).css('padding-right', padding).removeData('padding-right');
+          }
+        }); // Restore sticky content and navbar-toggler margin
+
+        $$$1(Selector.STICKY_CONTENT + ", " + Selector.NAVBAR_TOGGLER).each(function (index, element) {
           var margin = $$$1(element).data('margin-right');
 
           if (typeof margin !== 'undefined') {
@@ -17164,8 +17151,10 @@ return jQuery;
         }); // Restore body padding
 
         var padding = $$$1(document.body).data('padding-right');
-        $$$1(document.body).removeData('padding-right');
-        document.body.style.paddingRight = padding ? padding : '';
+
+        if (typeof padding !== 'undefined') {
+          $$$1(document.body).css('padding-right', padding).removeData('padding-right');
+        }
       };
 
       _proto._getScrollbarWidth = function _getScrollbarWidth() {
@@ -17230,7 +17219,7 @@ return jQuery;
       var selector = Util.getSelectorFromElement(this);
 
       if (selector) {
-        target = document.querySelector(selector);
+        target = $$$1(selector)[0];
       }
 
       var config = $$$1(target).data(DATA_KEY) ? 'toggle' : _objectSpread({}, $$$1(target).data(), $$$1(this).data());
@@ -17273,7 +17262,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): tooltip.js
+   * Bootstrap (v4.1.1): tooltip.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -17285,7 +17274,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'tooltip';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.tooltip';
     var EVENT_KEY = "." + DATA_KEY;
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
@@ -17495,7 +17484,7 @@ return jQuery;
           var attachment = this._getAttachment(placement);
 
           this.addAttachmentClass(attachment);
-          var container = this.config.container === false ? document.body : $$$1(document).find(this.config.container);
+          var container = this.config.container === false ? document.body : $$$1(this.config.container);
           $$$1(tip).data(this.constructor.DATA_KEY, this);
 
           if (!$$$1.contains(this.element.ownerDocument.documentElement, this.tip)) {
@@ -17634,9 +17623,9 @@ return jQuery;
       };
 
       _proto.setContent = function setContent() {
-        var tip = this.getTipElement();
-        this.setElementContent($$$1(tip.querySelectorAll(Selector.TOOLTIP_INNER)), this.getTitle());
-        $$$1(tip).removeClass(ClassName.FADE + " " + ClassName.SHOW);
+        var $tip = $$$1(this.getTipElement());
+        this.setElementContent($tip.find(Selector.TOOLTIP_INNER), this.getTitle());
+        $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW);
       };
 
       _proto.setElementContent = function setElementContent($element, content) {
@@ -17829,18 +17818,15 @@ return jQuery;
         var $tip = $$$1(this.getTipElement());
         var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
 
-        if (tabClass !== null && tabClass.length) {
+        if (tabClass !== null && tabClass.length > 0) {
           $tip.removeClass(tabClass.join(''));
         }
       };
 
-      _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(popperData) {
-        var popperInstance = popperData.instance;
-        this.tip = popperInstance.popper;
-
+      _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(data) {
         this._cleanTipClass();
 
-        this.addAttachmentClass(this._getAttachment(popperData.placement));
+        this.addAttachmentClass(this._getAttachment(data.placement));
       };
 
       _proto._fixTransition = function _fixTransition() {
@@ -17943,7 +17929,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): popover.js
+   * Bootstrap (v4.1.1): popover.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -17955,7 +17941,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'popover';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.popover';
     var EVENT_KEY = "." + DATA_KEY;
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
@@ -18140,7 +18126,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): scrollspy.js
+   * Bootstrap (v4.1.1): scrollspy.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -18152,7 +18138,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'scrollspy';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.scrollspy';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -18234,13 +18220,13 @@ return jQuery;
         this._offsets = [];
         this._targets = [];
         this._scrollHeight = this._getScrollHeight();
-        var targets = [].slice.call(document.querySelectorAll(this._selector));
+        var targets = $$$1.makeArray($$$1(this._selector));
         targets.map(function (element) {
           var target;
           var targetSelector = Util.getSelectorFromElement(element);
 
           if (targetSelector) {
-            target = document.querySelector(targetSelector);
+            target = $$$1(targetSelector)[0];
           }
 
           if (target) {
@@ -18337,9 +18323,7 @@ return jQuery;
           return;
         }
 
-        var offsetLength = this._offsets.length;
-
-        for (var i = offsetLength; i--;) {
+        for (var i = this._offsets.length; i--;) {
           var isActiveTarget = this._activeTarget !== this._targets[i] && scrollTop >= this._offsets[i] && (typeof this._offsets[i + 1] === 'undefined' || scrollTop < this._offsets[i + 1]);
 
           if (isActiveTarget) {
@@ -18359,7 +18343,7 @@ return jQuery;
         queries = queries.map(function (selector) {
           return selector + "[data-target=\"" + target + "\"]," + (selector + "[href=\"" + target + "\"]");
         });
-        var $link = $$$1([].slice.call(document.querySelectorAll(queries.join(','))));
+        var $link = $$$1(queries.join(','));
 
         if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
           $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
@@ -18380,8 +18364,7 @@ return jQuery;
       };
 
       _proto._clear = function _clear() {
-        var nodes = [].slice.call(document.querySelectorAll(this._selector));
-        $$$1(nodes).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
+        $$$1(this._selector).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
       }; // Static
 
 
@@ -18428,10 +18411,9 @@ return jQuery;
 
 
     $$$1(window).on(Event.LOAD_DATA_API, function () {
-      var scrollSpys = [].slice.call(document.querySelectorAll(Selector.DATA_SPY));
-      var scrollSpysLength = scrollSpys.length;
+      var scrollSpys = $$$1.makeArray($$$1(Selector.DATA_SPY));
 
-      for (var i = scrollSpysLength; i--;) {
+      for (var i = scrollSpys.length; i--;) {
         var $spy = $$$1(scrollSpys[i]);
 
         ScrollSpy._jQueryInterface.call($spy, $spy.data());
@@ -18456,7 +18438,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): tab.js
+   * Bootstrap (v4.1.1): tab.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -18468,7 +18450,7 @@ return jQuery;
      * ------------------------------------------------------------------------
      */
     var NAME = 'tab';
-    var VERSION = '4.1.3';
+    var VERSION = '4.1.1';
     var DATA_KEY = 'bs.tab';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -18550,7 +18532,7 @@ return jQuery;
         }
 
         if (selector) {
-          target = document.querySelector(selector);
+          target = $$$1(selector)[0];
         }
 
         this._activate(this._element, listElement);
@@ -18632,8 +18614,7 @@ return jQuery;
           var dropdownElement = $$$1(element).closest(Selector.DROPDOWN)[0];
 
           if (dropdownElement) {
-            var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
-            $$$1(dropdownToggleList).addClass(ClassName.ACTIVE);
+            $$$1(dropdownElement).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
           }
 
           element.setAttribute('aria-expanded', true);
@@ -18705,7 +18686,7 @@ return jQuery;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): index.js
+   * Bootstrap (v4.1.1): index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -72284,6 +72265,415 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * band Component<BR>
+ * <BR><BR><img src=/tk/lib/components/w/img/band.png width=60% style="border:1px lime dashed;padding:20px">
+ * <BR><BR><a href="/tk/lib/components/w/html/band.html">DEMO</a>
+ */
+var Band = function (_HTMLElement) {
+	_inherits(Band, _HTMLElement);
+
+	function Band() {
+		_classCallCheck(this, Band);
+
+		console.group("Band.constructor");
+
+		var _this = _possibleConstructorReturn(this, (Band.__proto__ || Object.getPrototypeOf(Band)).call(this));
+
+		console.groupEnd();
+		return _this;
+	}
+
+	_createClass(Band, [{
+		key: "connectedCallback",
+
+
+		/**
+   * This function is called when this is attached to DOM
+   * @connectedCallback. 
+   */
+		value: function connectedCallback() {
+			console.group("Band.connectedCallback");
+
+			var self = this;
+
+			// GET PROPERTIES AND INTERESTING ELEMENTS
+			this._initialize();
+
+			// REPLACE CONTENT IF NECESSARY WITH NEW STUFF
+			this.innerHTML = "\n<div class=\"row\">\n    <div class=\"wc-band-lhs\">\n    </div>\n    \n    <div class=\"wc-band-rhs\">\n    </div>\n</div>\n";
+			// ADD STATS AND OTHER FINAL STUFF
+			this._finalize();
+
+			// PUBLISH INTERESTING EVENTS
+			//this._publish();
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_publish",
+
+
+		/**
+   * Publish all events
+   * @_publish
+   */
+		value: function _publish() {
+			var _this2 = this;
+
+			console.group("Band.publish");
+
+			this.addEventListener("click", function (e) {
+				_this2._click();
+			});
+
+			console.groupEnd();
+		}
+
+		/**
+   * A sample callback usage function - see connectedCallback()
+   * @_click
+   */
+
+	}, {
+		key: "_click",
+		value: function _click() {
+			console.group("Band._click:", this.id);
+
+			wc.publish(this, "wc-band", {
+				time: new Date().getTime(),
+				action: "click",
+				id: this.id,
+				uparam: this.properties.uparam
+			});
+
+			console.groupEnd();
+		}
+	}, {
+		key: "disconnectedCallback",
+
+
+		/**
+   * Invoked When component is removed. Usually with a .remove() function call
+   * @disconnectedCallback
+   */
+		value: function disconnectedCallback() {
+			console.group("Band.disconnectedCallback");
+
+			/* CLEAN UP NOW */
+
+			console.groupEnd();
+		}
+	}, {
+		key: "attributeChangedCallback",
+
+
+		/**
+   * Called with .setAttribute(...) function call
+   * @attributeChangedCallback
+   */
+		value: function attributeChangedCallback(attr, oldval, newval) {
+			console.group("Band.attributeChangedCallback:", attr, oldval, newval);
+
+			this.properties = this.properties || [];
+
+			var obs = Band.observedAttributes;
+
+			for (var i = 0; i < obs.length; i++) {
+				if (newval) {
+					this.properties[obs[i]] = newval;
+				}
+			}
+
+			// YOUR CODE FOR CHANGES GO HERE (MAYBE NULL FIRST TIME THROUGH)
+			try {
+				switch (attr) {
+					case "background":
+						break;
+
+					default:
+						break;
+				}
+			} catch (e) {
+				console.warn(e.name + ' > ' + e.message);
+			}
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_fetchElements",
+
+
+		/**
+   * Stores DOM elements of interest for future use
+   * @_fetchElements
+   */
+		value: function _fetchElements() {
+			console.group("Band._fetchElements");
+
+			this.dom = this.dom || [];
+			this.dom.content = this.innerHTML;
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_fetchAttributes",
+
+
+		/**
+   * Component attributes are _fetched and defaults are set if undefined
+   * @_fetchAttributes
+   * @param {string} [modal=true] mode for our band
+   */
+		value: function _fetchAttributes() {
+			console.group("Band._fetchAttributes");
+
+			this.properties = {
+				cname: "band",
+				author: "Mel Heravi",
+				version: "1.0",
+				header: "UNDEFINED HEADER"
+			};
+
+			// SAVE WIDGET SPECIFIC PROPERTIES
+			this.propertiesW = [];
+
+			// SAVE ALL OTHER PROPERTIES
+			var attrs = wc.getAttributes(this);
+
+			for (var key in attrs) {
+				var attr = this.getAttribute(key) || this.properties.key;
+				this.properties[key] = this.getAttribute(key);
+				this.propertiesW[key] = this.getAttribute(key);
+				console.log(key + ": " + attrs[key]);
+			}
+
+			// SET ALL INITIAL ATTRIBUTES
+			for (var key in this.properties) {
+				switch (key) {
+					case "background":
+						break;
+
+					case "header":
+						var h = document.querySelector("wc-header");
+						break;
+
+					default:
+						break;
+				}
+			}
+
+			console.log("ATTRIBUTES: ", this.properties);
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_onClick",
+
+
+		/**
+   * A sample callback usage function - see connectedCallback()
+   * @_onClick
+   */
+		value: function _onClick() {
+			console.group("Band._onClick:", this.id);
+
+			wc.publish(this, "wc-band", {
+				action: "click",
+				id: this.id,
+				uparam: this.properties.uparam
+			});
+
+			console.groupEnd();
+		}
+	}, {
+		key: "destroy",
+
+
+		/**
+   * Destroy the instance object and artifacts
+   * @_destroy
+   */
+		value: function destroy() {
+			console.group("Band.destroy:", this.id);
+
+			// FREE ALL MEMORY
+			// you should delete all created objects here
+
+			// FREE POINTER
+			delete this;
+
+			// REMOVE ITEM FROM DOM
+			this.parentNode.removeChild(this);
+
+			console.groupEnd();
+		}
+	}, {
+		key: "configure",
+
+
+		/**
+   * configure the instance object and artifacts
+   * @_configure
+   */
+		value: function configure(band) {
+			console.group("Band.configure");
+
+			this._lhs("lhs", band.lhs);
+			this._rhs("rhs", band.rhs);
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_lhs",
+
+
+		/**
+   * @__lhs
+   */
+		value: function _lhs(side, band) {
+			console.group("Band._lhs:", side, band);
+
+			// CALL FUNC BASED ON CATEGORY
+			eval("this._" + band.category + "(side, band)");
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_table",
+
+
+		/**
+   * @__table
+   */
+		value: function _table(side, band) {
+			var _this3 = this;
+
+			console.group("Band._table:", side, band);
+
+			var con = "#" + this.id + " .wc-band-" + side;
+
+			$(con).empty();
+
+			$(con).addClass(band.width).append("<wc-table-plain></wc-table-plain>");
+
+			setTimeout(function (e) {
+				var tbl = _this3.querySelector("wc-table-plain");
+				tbl.configure(band);
+			}, 200);
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_rhs",
+
+
+		/**
+   * 
+   * @__lhs
+   */
+		value: function _rhs(side, band) {
+			console.group("Band._rhs", side, band);
+
+			// CALL FUNC BASED ON CATEGORY
+			eval("this._" + band.category + "(side, band)");
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_chart",
+
+
+		/**
+   * 
+   * @__lhs
+   */
+		value: function _chart(side, band) {
+			console.group("Band._chart:", side, band);
+
+			var con = "#" + this.id + " .wc-band-" + side;
+
+			$(con).empty();
+
+			$(con).addClass(band.width).append("<wc-chart id=\"" + this.id + "-" + side + "\"></wc-chart>");
+
+			var chart = this.querySelector("wc-chart");
+
+			eval("chart." + band.type + "(band)");
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_initialize",
+
+
+		/**
+   * SAVE DATA FOR ANALYTICS
+   * @__initialize
+   */
+		value: function _initialize() {
+			console.group("Band._initialize:", this.id);
+
+			// FETCH ALL INTERESTING ELEMENTS
+			this._fetchElements();
+
+			// FETCH ALL ATTRIBUTES
+			this._fetchAttributes();
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_finalize",
+
+
+		/**
+   * SAVE DATA FOR ANALYTICS
+   * @__finalize
+   */
+		value: function _finalize() {
+			console.group("Band._finalize:", this.id);
+
+			this.classList.add("wc");
+
+			// ADD ANALYTICS HERE
+			wc.setStats(this, this.properties.cname, this.properties.version);
+
+			// SHOW IT NOW (NO FLICKERS) 
+			this.style.visibility = "visible";
+
+			console.groupEnd();
+		}
+	}], [{
+		key: "observedAttributes",
+
+
+		/**
+   * Set observable values here. When Changed, attributeChangedCallback is invoked
+   * @observedAttributes
+   */
+		get: function get() {
+			console.group("Band.observedAttributes");
+
+			this.observables = ["header"];
+
+			console.groupEnd();
+			return this.observables;
+		}
+	}]);
+
+	return Band;
+}(HTMLElement);
+
+window.customElements.define('wc-band', Band);"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
  * A breadcrumb component 
  * <BR><BR><img src=../img/breadcrumb.png width=30% style="border:1px lime dashed";>
  * <BR><BR><a href="../html/breadcrumb.html">DEMO</a>
@@ -77415,6 +77805,332 @@ var Maker = function (_HTMLElement) {
 
 window.customElements.define('wc-maker', Maker);"use strict";
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Matrix Component<BR>
+ * <BR><BR><img src=../img/matrix.png width=100% style="border:1px lime dashed;padding:20px">
+ * <BR><BR><a href="../html/matrix.html">DEMO</a>
+ */
+var Matrix = function (_HTMLElement) {
+	_inherits(Matrix, _HTMLElement);
+
+	function Matrix() {
+		_classCallCheck(this, Matrix);
+
+		console.group("Matrix.constructor");
+
+		var _this = _possibleConstructorReturn(this, (Matrix.__proto__ || Object.getPrototypeOf(Matrix)).call(this));
+
+		console.groupEnd();
+		return _this;
+	}
+
+	_createClass(Matrix, [{
+		key: "connectedCallback",
+
+
+		/**
+   * This function is called when this is attached to DOM
+   * @connectedCallback. 
+   */
+		value: function connectedCallback() {
+			console.group("Matrix.connectedCallback");
+
+			var self = this;
+
+			// GET PROPERTIES AND INTERESTING ELEMENTS
+			this._initialize();
+
+			// REPLACE CONTENT IF NECESSARY WITH NEW STUFF
+			this.innerHTML = "<div id='" + this.id + "' class='wc-matrix-main'><span class=\"wc-loading-img\"></span></div>";
+
+			// ADD STATS AND OTHER FINAL STUFF
+			this._finalize();
+
+			// PUBLISH INTERESTING EVENTS
+			//this._publish();
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_publish",
+
+
+		/**
+   * Pubplish all events
+   * @_publish
+   */
+		value: function _publish() {
+			var _this2 = this;
+
+			console.group("Matrix.publish");
+
+			this.addEventListener("click", function (e) {
+				_this2._click();
+			});
+
+			console.groupEnd();
+			return true;
+		}
+
+		/**
+   * A sample callback usage function - see connectedCallback()
+   * @_click
+   */
+
+	}, {
+		key: "_click",
+		value: function _click() {
+			console.group("Matrix._click:", this.id);
+
+			wc.publish(this, "wc-matrix", {
+				time: new Date().getTime(),
+				action: "click",
+				id: this.id,
+				uparam: this.properties.uparam
+			});
+
+			console.groupEnd();
+		}
+	}, {
+		key: "disconnectedCallback",
+
+
+		/**
+   * Invoked When component is removed. Usually with a .remove() function call
+   * @disconnectedCallback
+   */
+		value: function disconnectedCallback() {
+			console.group("Matrix.disconnectedCallback");
+
+			/* CLEAN UP NOW */
+
+			console.groupEnd();
+		}
+	}, {
+		key: "attributeChangedCallback",
+
+
+		/**
+   * Called with .setAttribute(...) function call
+   * @attributeChangedCallback
+   */
+		value: function attributeChangedCallback(attr, oldval, newval) {
+			console.group("Matrix.attributeChangedCallback:", attr, oldval, newval);
+
+			this.properties = this.properties || [];
+
+			var obs = Matrix.observedAttributes;
+
+			for (var i = 0; i < obs.length; i++) {
+				if (newval) {
+					this.properties[obs[i]] = newval;
+				}
+			}
+
+			// YOUR CODE FOR CHANGES GO HERE (MAYBE NULL FIRST TIME THROUGH)
+			try {
+				switch (attr) {
+					case "background":
+						break;
+
+					default:
+						break;
+				}
+			} catch (e) {
+				console.warn(e.name + ' > ' + e.message);
+			}
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_fetchElements",
+
+
+		/**
+   * Stores DOM elements of interest for future use
+   * @_fetchElements
+   */
+		value: function _fetchElements() {
+			console.group("Matrix._fetchElements");
+
+			this.dom = this.dom || [];
+			this.dom.content = this.innerHTML;
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_fetchAttributes",
+
+
+		/**
+   * Component attributes are _fetched and defaults are set if undefined
+   * @_fetchAttributes
+   * @param {string} [modal=true] mode for our matrix
+   */
+		value: function _fetchAttributes() {
+			console.group("Matrix._fetchAttributes");
+
+			this.properties = {
+				cname: "Matrix",
+				author: "Mel Heravi",
+				version: "1.0"
+			};
+
+			// SAVE WIDGET SPECIFIC PROPERTIES
+			this.propertiesW = [];
+
+			// SAVE ALL OTHER PROPERTIES
+			var attrs = wc.getAttributes(this);
+
+			for (var key in attrs) {
+				var attr = this.getAttribute(key) || this.properties.key;
+				this.properties[key] = this.getAttribute(key);
+				this.propertiesW[key] = this.getAttribute(key);
+				console.log(key + ": " + attrs[key]);
+			}
+
+			// SET ALL INITIAL ATTRIBUTES
+			for (var key in this.properties) {
+				switch (key) {
+					case "background":
+						break;
+
+					default:
+						break;
+				}
+			}
+
+			console.log("ATTRIBUTES: ", this.properties);
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_onClick",
+
+
+		/**
+   * A sample callback usage function - see connectedCallback()
+   * @_onClick
+   */
+		value: function _onClick() {
+			console.group("Matrix._onClick:", this.id);
+
+			wc.publish(this, "wc-matrix", {
+				action: "click",
+				id: this.id,
+				uparam: this.properties.uparam
+			});
+
+			console.groupEnd();
+		}
+	}, {
+		key: "destroy",
+
+
+		/**
+   * Destroy the instance object and artifacts
+   * @_destroy
+   */
+		value: function destroy() {
+			console.group("Matrix.destroy:", this.id);
+
+			// FREE ALL MEMORY
+			// you should delete all created objects here
+
+			// FREE POINTER
+			delete this;
+
+			// REMOVE ITEM FROM DOM
+			this.parentNode.removeChild(this);
+
+			console.groupEnd();
+		}
+	}, {
+		key: "configure",
+
+
+		/**
+   * configure the instance object and artifacts
+   * @_configure
+   */
+		value: function configure(options) {
+			console.group("Matrix.configure:", JSON.stringify(options));
+
+			// PROCESS ALL OPTIONS HERE
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_initialize",
+
+
+		/**
+   * SAVE DATA FOR ANALYTICS
+   * @__initialize
+   */
+		value: function _initialize() {
+			console.group("Matrix._initialize:", this.id);
+
+			// FETCH ALL INTERESTING ELEMENTS
+			this._fetchElements();
+
+			// FETCH ALL ATTRIBUTES
+			this._fetchAttributes();
+
+			console.groupEnd();
+		}
+	}, {
+		key: "_finalize",
+
+
+		/**
+   * SAVE DATA FOR ANALYTICS
+   * @__finalize
+   */
+		value: function _finalize() {
+			console.group("Matrix._finalize:", this.id);
+
+			this.classList.add("wc");
+
+			// ADD ANALYTICS HERE
+			wc.setStats(this, this.properties.cname, this.properties.version);
+
+			// SHOW IT NOW (NO FLICKERS) 
+			this.style.visibility = "visible";
+
+			console.groupEnd();
+		}
+	}], [{
+		key: "observedAttributes",
+
+
+		/**
+   * Set observable values here. When Changed, attributeChangedCallback is invoked
+   * @observedAttributes
+   */
+		get: function get() {
+			console.group("Matrix.observedAttributes");
+
+			this.observables = [];
+
+			console.groupEnd();
+			return this.observables;
+		}
+	}]);
+
+	return Matrix;
+}(HTMLElement);
+
+window.customElements.define('wc-matrix', Matrix);"use strict";
+
 // START LOADING STUFF NOW
 $(".wc-matrix-main").load(cmx.html + "matrix.html", function () {
 	$(".page-footer").load(cmx.html + "matrix.footer.html", function () {
@@ -77942,7 +78658,7 @@ var Melify = function (_HTMLElement) {
 			this._initialize();
 
 			// REPLACE CONTENT IF NECESSARY WITH NEW STUFF
-			this.innerHTML = "<h1>KKKKKKKK</h1><wc-include href=\"../html/parts/melify/home.html\"></wc-iclude>";
+			this.innerHTML = "<h1>KKKKKKKK</h1><wc-include href=\"/tk/lib/components/misc/webpack/src/w/html/parts/melify/home.html\"></wc-iclude>";
 
 			// ADD STATS AND OTHER FINAL STUFF
 			this._finalize();
