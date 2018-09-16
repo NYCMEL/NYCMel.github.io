@@ -38,7 +38,7 @@ class Melify extends HTMLElement {
 	this._initialize();
 
 	// REPLACE CONTENT IF NECESSARY WITH NEW STUFF
-	this.innerHTML = `<h1>KKKKKKKK</h1><wc-include href="../../html/parts/melify/home.html"></wc-iclude>`;
+	this.innerHTML = `<wc-include href="${wcRoot}/html/parts/melify/home.html"></wc-iclude>`;
 
 	// ADD STATS AND OTHER FINAL STUFF
 	this._finalize();
