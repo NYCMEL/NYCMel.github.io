@@ -1,6 +1,6 @@
 /**
  * Melify Component<BR>
- * <BR><BR><img src=../img/melify.png width=30% style="border:1px lime dashed;padding:20px">
+ * <BR><BR><img src=../img/melify.png width=50% style="border:1px lime dashed;padding:20px">
  * <BR><BR><a href="../html/melify.html">DEMO</a>
  */
 class Melify extends HTMLElement {
