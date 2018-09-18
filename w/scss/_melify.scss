@@ -3,17 +3,13 @@
 @import "media";
 @import "rfs";
 
-body {
-    margin:0;
-    padding:0;
-    background: #f7f7f7;
-}
-
 ///////////////////////////////////////////
 // wc-melify
 ///////////////////////////////////////////
 #wc {
     wc-melify {
+	background: #f7f7f7;
+
 	@include responsive-font-size($font-size-medium);
 	display: block;
 	visibility: hidden;
@@ -34,16 +30,6 @@ body {
 		    }
 		}
 	    }
-	}
-
-	wc-tile-description {
-	    /* .fa { */
-	    /* 	display: inline-block; */
-	    /* 	border-radius: 60px; */
-	    /* 	box-shadow: 0px 0px 2px #888; */
-	    /* 	padding: 0.5em 0.6em; */
-
-	    /* } */
 	}
 
 	.card-header {

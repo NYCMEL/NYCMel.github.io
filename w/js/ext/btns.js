@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-09-16 18:20:11 (melify)>
+//// Time-stamp: <2018-09-17 20:49:00 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var mtkBtns = {};
 
@@ -16,7 +16,7 @@ mtkBtns.init = function(options) {
 	switch(id) 
 	{
 	    case "mtk-btn-1":
-	    document.location.href = "/Melify/mtk/dev/tk/lib/components/w/doc"
+	    document.location.href = "/mtk/render?page=components";
 	    break;
 
 	    case "mtk-btn-2":
