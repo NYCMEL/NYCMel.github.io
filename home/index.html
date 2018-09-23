@@ -13,6 +13,7 @@
 
 	<!-- DO NOT INCLUDE IF ALREADY HAVE IT -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.11.1/document-register-element.max.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
     </head>
 
     <body id="wc" style="background:#E3EEF2">
@@ -363,5 +364,19 @@
 	</div>
 
 	<script type="text/javascript" src="https://cdn.rawgit.com/NYCMEL/webpack/56f29c55/prod/melify/wc.bundle.js"></script>
+
+	<script>
+	 jQuery(document).ready(function() {
+	     var slideUp = {
+		 distance: '110%',
+		 origin: 'bottom',
+		 opacity: 0.5,
+		 duration: 1500
+	     };
+
+	     ScrollReveal().reveal('[class*=col-md-]', slideUp);
+	 });
+	</script>
     </body>
 </html>
+ 
