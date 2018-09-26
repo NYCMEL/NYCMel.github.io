@@ -1,18 +1,26 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en">
     <head>
-	<title>Melify.com - Root</title>
-	<meta name="viewport"  content="width=device-width, initial-scale=1" >
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"  rel="stylesheet" >
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Webpack App</title>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" > </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" > </script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" > </script>
+	<!-- REQUIRED BY W3C STATS -->
+	<script>
+	 /* eslint-disable-next-line */
+	 /* eslint-disable */
+	 wcENV="dev";
+	 wcAPP="webpack";
+	 wcURL="http://localhost:1234";
+	</script>
+
+	<!-- DO NOT INCLUDE IF ALREADY HAVE IT -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.11.1/document-register-element.max.js"></script>
     </head>
 
     <body id="wc">
-	<h1>Melify.com <small>- Root</small></h1>
-
-	<script src="./melify/inc/wc.bundle.js"></script>
+	<wc-melify id="melify-app"></wc-melify>
+	
+	<script type="text/javascript" src="https://cdn.rawgit.com/NYCMEL/webpack/56f29c55/prod/melify/wc.bundle.js"></script>
     </body>
 </html>
